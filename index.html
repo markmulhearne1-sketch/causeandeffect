@@ -81,6 +81,9 @@
     .step2--light input, .step2--light select { background: var(--white); border: 1.5px solid #ccc; color: var(--black); }
     .step2--light input::placeholder { color: #bbb; }
     .step2--light button[type="button"].submit-btn { background: var(--black); color: var(--white); }
+    .city-other { display: none; animation: fadeUp 0.2s ease forwards; }
+    .city-other.visible { display: block; }
+    .city-other input { font-size: 13px !important; padding: 10px 16px !important; }
     .final-form { transition: opacity 0.2s; }
     .hero-disclaimer { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; }
     .hero-meta { position: absolute; bottom: 32px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 48px; z-index: 2; }
@@ -264,7 +267,11 @@
         <option>Miami</option>
         <option>Amsterdam</option>
         <option>Shanghai</option>
+        <option value="Other">Other</option>
       </select>
+      <div class="city-other" id="hero-city-other-wrap">
+        <input type="text" id="hero-city-other" placeholder="which city?" autocomplete="off">
+      </div>
       <input type="text" id="hero-company" placeholder="company name">
       <select id="hero-role">
         <option value="" disabled selected>your role</option>
@@ -474,7 +481,11 @@
       <option>Amsterdam</option>
       <option>Shanghai</option>
       <option>Rotterdam</option>
+      <option value="Other">Other</option>
     </select>
+    <div class="city-other" id="final-city-other-wrap">
+      <input type="text" id="final-city-other" placeholder="which city?" autocomplete="off">
+    </div>
     <input type="text" id="final-company" placeholder="company name">
     <select id="final-role">
       <option value="" disabled selected>your role</option>
@@ -530,9 +541,24 @@
 
   /* ── Two-step forms ── */
   function initTwoStep(cfg) {
-    const step1   = document.getElementById(cfg.step1);
-    const step2   = document.getElementById(cfg.step2);
-    const emailEl = document.getElementById(cfg.email);
+    const step1      = document.getElementById(cfg.step1);
+    const step2      = document.getElementById(cfg.step2);
+    const emailEl    = document.getElementById(cfg.email);
+    const cityEl     = document.getElementById(cfg.city);
+    const otherWrap  = document.getElementById(cfg.cityOtherWrap);
+    const otherInput = document.getElementById(cfg.cityOther);
+
+    /* Show/hide "other city" text field */
+    cityEl.addEventListener('change', () => {
+      if (cityEl.value === 'Other') {
+        otherWrap.classList.add('visible');
+        otherInput.focus();
+      } else {
+        otherWrap.classList.remove('visible');
+        otherInput.value = '';
+      }
+    });
+
     document.getElementById(cfg.next).addEventListener('click', () => {
       const val = emailEl.value.trim();
       if (!val.includes('@') || !val.includes('.')) {
@@ -545,15 +571,18 @@
       setTimeout(() => {
         step1.style.display = 'none';
         step2.classList.add('visible');
-        document.getElementById(cfg.city).focus();
+        cityEl.focus();
       }, 200);
     });
+
     document.getElementById(cfg.submit).addEventListener('click', async () => {
-      const email   = emailEl.value.trim();
-      const city    = document.getElementById(cfg.city).value;
-      const company = document.getElementById(cfg.company).value.trim();
-      const role    = document.getElementById(cfg.role).value;
-      if (!city || !company || !role) return;
+      const email      = emailEl.value.trim();
+      const cityRaw    = cityEl.value;
+      const cityOther  = otherInput.value.trim();
+      const city       = cityRaw === 'Other' ? (cityOther || 'Other') : cityRaw;
+      const company    = document.getElementById(cfg.company).value.trim();
+      const role       = document.getElementById(cfg.role).value;
+      if (!cityRaw || (cityRaw === 'Other' && !cityOther) || !company || !role) return;
       const btn  = document.getElementById(cfg.submit);
       const orig = btn.textContent;
       btn.textContent = 'submitting...';
@@ -582,8 +611,8 @@
       }
     });
   }
-  initTwoStep({ step1:'hero-step1',  next:'hero-next',  email:'hero-email',  step2:'hero-step2',  city:'hero-city',  company:'hero-company',  role:'hero-role',  submit:'hero-submit'  });
-  initTwoStep({ step1:'final-step1', next:'final-next', email:'final-email', step2:'final-step2', city:'final-city', company:'final-company', role:'final-role', submit:'final-submit' });
+  initTwoStep({ step1:'hero-step1',  next:'hero-next',  email:'hero-email',  step2:'hero-step2',  city:'hero-city',  cityOtherWrap:'hero-city-other-wrap',  cityOther:'hero-city-other',  company:'hero-company',  role:'hero-role',  submit:'hero-submit'  });
+  initTwoStep({ step1:'final-step1', next:'final-next', email:'final-email', step2:'final-step2', city:'final-city', cityOtherWrap:'final-city-other-wrap', cityOther:'final-city-other', company:'final-company', role:'final-role', submit:'final-submit' });
 
   /* ── Hamburger ── */
   const hamburger  = document.getElementById('hamburger');
