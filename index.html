@@ -235,11 +235,11 @@
   <div class="hero-inner">
     <p class="hero-eyebrow">// cause &amp; effect — for the operators who own the consequences</p>
     <h1>
-      private dinners<br>
+      private dinners in logistics hubs<br>
       <strong>for supply chain leaders.</strong>
     </h1>
     <p class="hero-subhead">
-      cause &amp; effect hosts <strong>invitation-only 10-seat dinners</strong> between the operators responsible for global supply chains. built to stay small. membership is intentionally limited.
+      cause &amp; effect hosts <strong>invitation-only 10-seat dinners</strong> for the operators responsible for global supply chains. built to stay small. membership is intentionally limited.
     </p>
     <form class="signup-form" id="hero-step1">
       <input type="email" id="hero-email" placeholder="your work email address">
@@ -247,6 +247,24 @@
     </form>
     <div class="step2 step2--dark" id="hero-step2">
       <p class="step2-label">// one more thing.</p>
+      <select id="hero-city">
+        <option value="" disabled selected>preferred dinner city</option>
+        <option>Rotterdam</option>
+        <option>Singapore</option>
+        <option>Chicago</option>
+        <option>Dubai</option>
+        <option>Frankfurt</option>
+        <option>Hong Kong</option>
+        <option>Los Angeles</option>
+        <option>London</option>
+        <option>Shenzhen</option>
+        <option>New York</option>
+        <option>Tokyo</option>
+        <option>Antwerp</option>
+        <option>Miami</option>
+        <option>Amsterdam</option>
+        <option>Shanghai</option>
+      </select>
       <input type="text" id="hero-company" placeholder="company name">
       <select id="hero-role">
         <option value="" disabled selected>your role</option>
@@ -274,8 +292,8 @@
 <!-- ── TICKER ── -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item">rotterdam</span><span class="ticker-item">singapore</span><span class="ticker-item">chicago</span><span class="ticker-item">dubai</span><span class="ticker-item">frankfurt</span><span class="ticker-item">hong kong</span><span class="ticker-item">los angeles</span><span class="ticker-item">london</span><span class="ticker-item">shenzhen</span><span class="ticker-item">new york</span><span class="ticker-item">toronto</span><span class="ticker-item">antwerp</span><span class="ticker-item">miami</span><span class="ticker-item">amsterdam</span><span class="ticker-item">shanghai</span>
-    <span class="ticker-item">rotterdam</span><span class="ticker-item">singapore</span><span class="ticker-item">chicago</span><span class="ticker-item">dubai</span><span class="ticker-item">frankfurt</span><span class="ticker-item">hong kong</span><span class="ticker-item">los angeles</span><span class="ticker-item">london</span><span class="ticker-item">shenzhen</span><span class="ticker-item">new york</span><span class="ticker-item">toronto</span><span class="ticker-item">antwerp</span><span class="ticker-item">miami</span><span class="ticker-item">amsterdam</span><span class="ticker-item">shanghai</span>
+    <span class="ticker-item">rotterdam</span><span class="ticker-item">singapore</span><span class="ticker-item">chicago</span><span class="ticker-item">dubai</span><span class="ticker-item">frankfurt</span><span class="ticker-item">hong kong</span><span class="ticker-item">los angeles</span><span class="ticker-item">london</span><span class="ticker-item">shenzhen</span><span class="ticker-item">new york</span><span class="ticker-item">tokyo</span><span class="ticker-item">antwerp</span><span class="ticker-item">miami</span><span class="ticker-item">amsterdam</span><span class="ticker-item">shanghai</span>
+    <span class="ticker-item">rotterdam</span><span class="ticker-item">singapore</span><span class="ticker-item">chicago</span><span class="ticker-item">dubai</span><span class="ticker-item">frankfurt</span><span class="ticker-item">hong kong</span><span class="ticker-item">los angeles</span><span class="ticker-item">london</span><span class="ticker-item">shenzhen</span><span class="ticker-item">new york</span><span class="ticker-item">tokyo</span><span class="ticker-item">antwerp</span><span class="ticker-item">miami</span><span class="ticker-item">amsterdam</span><span class="ticker-item">shanghai</span>
   </div>
 </div>
 
@@ -438,6 +456,24 @@
   </form>
   <div class="step2 step2--light" id="final-step2">
     <p class="step2-label">// one more thing.</p>
+    <select id="final-city">
+      <option value="" disabled selected>preferred dinner city</option>
+      <option>Rotterdam</option>
+      <option>Singapore</option>
+      <option>Chicago</option>
+      <option>Dubai</option>
+      <option>Frankfurt</option>
+      <option>Hong Kong</option>
+      <option>Los Angeles</option>
+      <option>London</option>
+      <option>Shenzhen</option>
+      <option>New York</option>
+      <option>Tokyo</option>
+      <option>Antwerp</option>
+      <option>Miami</option>
+      <option>Amsterdam</option>
+      <option>Shanghai</option>
+    </select>
     <input type="text" id="final-company" placeholder="company name">
     <select id="final-role">
       <option value="" disabled selected>your role</option>
@@ -451,7 +487,7 @@
       <option>VP Procurement</option>
       <option>Other C-Suite / Director</option>
     </select>
-      <button type="button" id="final-submit" class="submit-btn">submit application →</button>
+    <button type="button" id="final-submit" class="submit-btn">submit application →</button>
   </div>
   <p class="cta-disclaimer">no vendors. no consultants. no exceptions.</p>
 </section>
@@ -508,14 +544,15 @@
       setTimeout(() => {
         step1.style.display = 'none';
         step2.classList.add('visible');
-        document.getElementById(cfg.company).focus();
+        document.getElementById(cfg.city).focus();
       }, 200);
     });
     document.getElementById(cfg.submit).addEventListener('click', async () => {
       const email   = emailEl.value.trim();
+      const city    = document.getElementById(cfg.city).value;
       const company = document.getElementById(cfg.company).value.trim();
       const role    = document.getElementById(cfg.role).value;
-      if (!company || !role) return;
+      if (!city || !company || !role) return;
       const btn  = document.getElementById(cfg.submit);
       const orig = btn.textContent;
       btn.textContent = 'submitting...';
@@ -525,9 +562,18 @@
           method:  'POST',
           mode:    'no-cors',
           headers: { 'Content-Type': 'text/plain' },
-          body:    JSON.stringify({ email, company, role })
+          body:    JSON.stringify({ email, city, company, role })
         });
-        step2.innerHTML = '<p class="step2-label" style="font-size:13px;letter-spacing:0.05em;opacity:0.8">application received ✓ — you will hear back within 72 hours if you qualify.</p>';
+        const isDark = step2.classList.contains('step2--dark');
+        step2.innerHTML = isDark
+          ? `<div style="border:1px solid rgba(255,255,255,0.45);padding:28px 24px;text-align:center;animation:fadeUp 0.3s ease forwards;">
+               <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:0.02em;">✓ application received</div>
+               <div style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.06em;line-height:1.7;">you will hear back within 72 hours if you qualify.<br>most applications are declined.</div>
+             </div>`
+          : `<div style="border:2px solid #060606;padding:28px 24px;text-align:center;background:#060606;animation:fadeUp 0.3s ease forwards;">
+               <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:0.02em;">✓ application received</div>
+               <div style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:0.06em;line-height:1.7;">you will hear back within 72 hours if you qualify.<br>most applications are declined.</div>
+             </div>`;
       } catch {
         btn.textContent = 'error — please try again';
         btn.disabled = false;
@@ -535,8 +581,8 @@
       }
     });
   }
-  initTwoStep({ step1:'hero-step1',  next:'hero-next',  email:'hero-email',  step2:'hero-step2',  company:'hero-company',  role:'hero-role',  submit:'hero-submit'  });
-  initTwoStep({ step1:'final-step1', next:'final-next', email:'final-email', step2:'final-step2', company:'final-company', role:'final-role', submit:'final-submit' });
+  initTwoStep({ step1:'hero-step1',  next:'hero-next',  email:'hero-email',  step2:'hero-step2',  city:'hero-city',  company:'hero-company',  role:'hero-role',  submit:'hero-submit'  });
+  initTwoStep({ step1:'final-step1', next:'final-next', email:'final-email', step2:'final-step2', city:'final-city', company:'final-company', role:'final-role', submit:'final-submit' });
 
   /* ── Hamburger ── */
   const hamburger  = document.getElementById('hamburger');
