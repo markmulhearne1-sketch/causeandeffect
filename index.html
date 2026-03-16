@@ -372,16 +372,26 @@
 
 <script>
   /* ─────────────────────────────────────────────────────────
-     FORMSPREE SETUP — GitHub Pages needs a third-party form handler.
-     Netlify forms only work on Netlify hosting.
+     GOOGLE APPS SCRIPT SETUP — free, unlimited, data goes to your Google Sheet.
 
+     Apps Script code to paste at script.google.com:
+     ─────────────────────────────────────────────
+     function doPost(e) {
+       const sheet = SpreadsheetApp.openById('YOUR_SHEET_ID').getActiveSheet();
+       const data  = JSON.parse(e.postData.contents);
+       sheet.appendRow([new Date(), data.email, data.company, data.role]);
+       return ContentService
+         .createTextOutput(JSON.stringify({ result: 'success' }))
+         .setMimeType(ContentService.MimeType.JSON);
+     }
+     ─────────────────────────────────────────────
      Steps:
-     1. Go to https://formspree.io and sign up (free)
-     2. Click "New Form", name it "cause-effect-signup"
-     3. Copy the endpoint — looks like: https://formspree.io/f/xabcdefg
-     4. Paste it below, replacing the placeholder value
+     1. Create a Google Sheet — copy its ID from the URL (/d/SHEET_ID/edit)
+     2. Go to script.google.com, paste the code above, replace YOUR_SHEET_ID
+     3. Deploy → New deployment → Web app → access: "Anyone" → Deploy
+     4. Copy the /exec URL and paste it below
   ───────────────────────────────────────────────────────── */
-  const FORMSPREE = 'https://formspree.io/f/YOUR_FORM_ID';
+  const GOOGLE_SCRIPT = 'https://script.google.com/macros/s/AKfycbyd_ifsAW2MJEQM2M_3zf1wBJ2Wutmn2Wb5Q--HUsh_qjRzU6VYLYZa0If-4w4uk1st/exec';
 
   /* ── Binary canvas ── */
   const canvas = document.getElementById('binary-canvas');
@@ -437,12 +447,14 @@
       btn.disabled = true;
 
       try {
-        const res = await fetch(FORMSPREE, {
+        // mode: 'no-cors' is required for Google Apps Script cross-origin requests.
+        // The data is sent and written to your Sheet — we just can't read the response.
+        await fetch(GOOGLE_SCRIPT, {
           method:  'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
           body:    JSON.stringify({ email, company, role })
         });
-        if (!res.ok) throw new Error();
         step2.innerHTML = '<p class="step2-label" style="font-size:13px;letter-spacing:0.05em;opacity:0.8">application received ✓ — we\'ll be in touch within 72 hours.</p>';
       } catch {
         btn.textContent = 'error — please try again';
