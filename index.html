@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cause & effect — intelligence for supply chain leaders</title>
+  <title>cause & effect — private dinners for supply chain leaders</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -72,13 +72,11 @@
     .step2 button[type="button"].submit-btn { width: 100%; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; border: none; padding: 14px; cursor: pointer; transition: opacity 0.2s; }
     .step2 button[type="button"].submit-btn:hover { opacity: 0.85; }
     .step2 button[type="button"].submit-btn:disabled { opacity: 0.5; cursor: default; }
-    /* dark variant */
     .step2--dark .step2-label { color: rgba(255,255,255,0.4); }
     .step2--dark input, .step2--dark select { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.22); color: var(--white); }
     .step2--dark input::placeholder { color: rgba(255,255,255,0.3); }
     .step2--dark select option { background: #111; color: var(--white); }
     .step2--dark button[type="button"].submit-btn { background: var(--white); color: var(--black); }
-    /* light variant */
     .step2--light .step2-label { color: #999; }
     .step2--light input, .step2--light select { background: var(--white); border: 1.5px solid #ccc; color: var(--black); }
     .step2--light input::placeholder { color: #bbb; }
@@ -104,16 +102,20 @@
     h2.about-headline { font-size: clamp(34px, 5vw, 58px); font-weight: 300; line-height: 1.12; letter-spacing: -0.03em; color: var(--black); margin-bottom: 24px; }
     h2.about-headline strong { font-weight: 900; }
     .about-body { font-size: 17px; color: #555; line-height: 1.8; max-width: 680px; }
-    /* ── BENEFITS ── */
-    .benefits { background: var(--black); padding: 108px 48px; }
+    /* ── FORMAT ── */
+    .format { background: var(--black); padding: 108px 48px; }
     .section-label-box { display: inline-block; border: 2px solid var(--white); font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.05em; padding: 10px 20px; margin-bottom: 72px; color: var(--white); }
-    .benefits-inner { max-width: 1120px; margin: 0 auto; text-align: center; }
-    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.07); }
-    .benefit-card { background: var(--black); padding: 52px 44px; text-align: left; }
-    .benefit-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.25); margin-bottom: 22px; display: flex; align-items: center; gap: 12px; }
-    .benefit-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
-    .benefit-title { font-size: 21px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 14px; }
-    .benefit-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.75; }
+    .format-inner { max-width: 1120px; margin: 0 auto; text-align: center; }
+    .format-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.07); }
+    .format-card { background: var(--black); padding: 52px 44px; text-align: left; }
+    .format-number { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.25); margin-bottom: 22px; display: flex; align-items: center; gap: 12px; }
+    .format-number::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+    .format-title { font-size: 21px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .format-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.75; }
+    .format-card.locked { border: 1px solid rgba(255,255,255,0.06); }
+    .format-card.locked .format-title { color: rgba(255,255,255,0.35); }
+    .format-card.locked .format-desc { color: rgba(255,255,255,0.25); }
+    .locked-tag { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.12); padding: 3px 8px; margin-bottom: 16px; }
     /* ── WHO ── */
     .who { background: var(--off-white); padding: 108px 48px; color: var(--black); }
     .who-inner { max-width: 920px; margin: 0 auto; }
@@ -125,17 +127,31 @@
     .criteria-number { font-family: var(--mono); font-size: 10px; color: #aaa; letter-spacing: 0.1em; margin-bottom: 14px; }
     .criteria-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
     .criteria-desc { font-size: 14px; color: #666; line-height: 1.7; }
+    /* ── SEATS ── */
+    .seats { background: var(--black); padding: 108px 48px; text-align: center; }
+    .seats-inner { max-width: 680px; margin: 0 auto; }
+    .seats-number { font-size: clamp(80px, 14vw, 160px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--white); margin-bottom: 8px; }
+    .seats-label { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 40px; }
+    .seats-desc { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 540px; margin: 0 auto; }
+    .seats-desc strong { color: var(--white); font-weight: 700; }
     /* ── TESTIMONIALS ── */
-    .testimonials { background: var(--black); padding: 108px 48px; }
+    .testimonials { background: var(--off-white); padding: 108px 48px; color: var(--black); }
     .testimonials-inner { max-width: 1060px; margin: 0 auto; }
     .section-center { text-align: center; margin-bottom: 68px; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); }
-    .testimonial-card { background: var(--black); padding: 44px 38px; }
-    .t-quote { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.72); margin-bottom: 36px; font-weight: 300; font-style: italic; }
-    .t-quote strong { font-style: normal; font-weight: 700; color: var(--white); }
-    .t-author { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
-    .t-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .t-role { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.03em; }
+    .section-label-box--dark { display: inline-block; border: 2px solid var(--black); font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.05em; padding: 10px 20px; margin-bottom: 72px; color: var(--black); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,0.08); }
+    .testimonial-card { background: var(--off-white); padding: 44px 38px; }
+    .t-quote { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 36px; font-weight: 300; font-style: italic; }
+    .t-quote strong { font-style: normal; font-weight: 700; color: var(--black); }
+    .t-author { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px; }
+    .t-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--black); }
+    .t-role { font-family: var(--mono); font-size: 11px; color: #999; letter-spacing: 0.03em; }
+    /* ── CITIES ── */
+    .cities { background: var(--black); padding: 80px 48px; border-top: 1px solid var(--border-dark); }
+    .cities-inner { max-width: 920px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+    .cities-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.2); white-space: nowrap; flex-shrink: 0; }
+    .cities-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .city-tag { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px; letter-spacing: 0.04em; }
     /* ── FINAL CTA ── */
     .final-cta { background: var(--white); color: var(--black); padding: 128px 48px; text-align: center; }
     .cta-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: #aaa; margin-bottom: 30px; }
@@ -173,10 +189,11 @@
       .hamburger { display: flex; }
       .nav-links { display: none; }
       .nav-cta { display: none; }
-      .hero, .about, .benefits, .who, .testimonials, .final-cta { padding: 80px 24px; }
+      .hero, .about, .format, .who, .seats, .testimonials, .cities, .final-cta { padding: 80px 24px; }
       .hero-meta { display: none; }
-      .benefits-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .format-grid, .testimonials-grid { grid-template-columns: 1fr; }
       .who-criteria { grid-template-columns: 1fr; gap: 32px; }
+      .cities-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       footer { flex-direction: column; gap: 18px; text-align: center; }
       .footer-meta { display: none; }
       .terminal-body { padding: 28px 24px; }
@@ -194,11 +211,11 @@
     <span class="nav-logo-text">cause &amp; effect</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#about">about</a></li>
-    <li><a href="#benefits">membership</a></li>
+    <li><a href="#about">the dinner</a></li>
+    <li><a href="#format">the format</a></li>
     <li><a href="#who">eligibility</a></li>
   </ul>
-  <a href="#signup" class="nav-cta">+ request access</a>
+  <a href="#signup" class="nav-cta">+ request a seat</a>
   <button class="hamburger" id="hamburger" aria-label="open menu">
     <span></span><span></span><span></span>
   </button>
@@ -206,30 +223,28 @@
 
 <!-- ── MOBILE MENU ── -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about"    class="mobile-link">about</a>
-  <a href="#benefits" class="mobile-link">membership</a>
-  <a href="#who"      class="mobile-link">eligibility</a>
-  <a href="#signup"   class="mobile-cta">+ request access</a>
+  <a href="#about"  class="mobile-link">the dinner</a>
+  <a href="#format" class="mobile-link">the format</a>
+  <a href="#who"    class="mobile-link">eligibility</a>
+  <a href="#signup" class="mobile-cta">+ request a seat</a>
 </div>
 
 <!-- ── HERO ── -->
 <section class="hero">
   <canvas id="binary-canvas"></canvas>
   <div class="hero-inner">
-    <p class="hero-eyebrow">// cause &amp; effect — the supply chain intelligence collective</p>
+    <p class="hero-eyebrow">// cause &amp; effect — for the operators who own the consequences</p>
     <h1>
       private dinners in logistics hubs<br>
       <strong>for supply chain leaders.</strong>
     </h1>
     <p class="hero-subhead">
-      cause &amp; effect hosts <strong>invitation-only 10-seat dinners</strong> for the operators responsible for global supply chains. Built to stay small, membership is intentionally limited.
+      cause &amp; effect hosts <strong>invitation-only 10-seat dinners</strong> for the operators responsible for global supply chains. built to stay small. membership is intentionally limited.
     </p>
-
     <form class="signup-form" id="hero-step1">
       <input type="email" id="hero-email" placeholder="your work email address">
-      <button type="button" id="hero-next">request access →</button>
+      <button type="button" id="hero-next">request a seat →</button>
     </form>
-
     <div class="step2 step2--dark" id="hero-step2">
       <p class="step2-label">// one more thing.</p>
       <input type="text" id="hero-company" placeholder="company name">
@@ -245,14 +260,13 @@
         <option>VP Procurement</option>
         <option>Other C-Suite / Director</option>
       </select>
-      <button type="button" id="hero-submit" class="submit-btn">complete application →</button>
+      <button type="button" id="hero-submit" class="submit-btn">submit application →</button>
     </div>
-
-    <p class="hero-disclaimer">membership is by application only. reviewed within 72 hours.</p>
+    <p class="hero-disclaimer">every seat is reviewed. most applications are declined.</p>
   </div>
   <div class="hero-meta">
     <span>si//csco — access restricted</span>
-    <span>est. mmxxiv // global operations intelligence</span>
+    <span>10 seats. always.</span>
     <span>doc: #ce-2024-01</span>
   </div>
 </section>
@@ -260,8 +274,8 @@
 <!-- ── TICKER ── -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item">amazon</span><span class="ticker-item">apple</span><span class="ticker-item">walmart</span><span class="ticker-item">maersk</span><span class="ticker-item">dhl</span><span class="ticker-item">unilever</span><span class="ticker-item">procter &amp; gamble</span><span class="ticker-item">tesla</span><span class="ticker-item">fedex</span><span class="ticker-item">nestlé</span><span class="ticker-item">caterpillar</span><span class="ticker-item">samsung</span><span class="ticker-item">3m</span><span class="ticker-item">ikea</span><span class="ticker-item">zara</span>
-    <span class="ticker-item">amazon</span><span class="ticker-item">apple</span><span class="ticker-item">walmart</span><span class="ticker-item">maersk</span><span class="ticker-item">dhl</span><span class="ticker-item">unilever</span><span class="ticker-item">procter &amp; gamble</span><span class="ticker-item">tesla</span><span class="ticker-item">fedex</span><span class="ticker-item">nestlé</span><span class="ticker-item">caterpillar</span><span class="ticker-item">samsung</span><span class="ticker-item">3m</span><span class="ticker-item">ikea</span><span class="ticker-item">zara</span>
+    <span class="ticker-item">rotterdam</span><span class="ticker-item">singapore</span><span class="ticker-item">chicago</span><span class="ticker-item">dubai</span><span class="ticker-item">frankfurt</span><span class="ticker-item">hong kong</span><span class="ticker-item">los angeles</span><span class="ticker-item">london</span><span class="ticker-item">shenzhen</span><span class="ticker-item">new york</span><span class="ticker-item">tokyo</span><span class="ticker-item">antwerp</span><span class="ticker-item">miami</span><span class="ticker-item">amsterdam</span><span class="ticker-item">shanghai</span>
+    <span class="ticker-item">rotterdam</span><span class="ticker-item">singapore</span><span class="ticker-item">chicago</span><span class="ticker-item">dubai</span><span class="ticker-item">frankfurt</span><span class="ticker-item">hong kong</span><span class="ticker-item">los angeles</span><span class="ticker-item">london</span><span class="ticker-item">shenzhen</span><span class="ticker-item">new york</span><span class="ticker-item">tokyo</span><span class="ticker-item">antwerp</span><span class="ticker-item">miami</span><span class="ticker-item">amsterdam</span><span class="ticker-item">shanghai</span>
   </div>
 </div>
 
@@ -271,28 +285,70 @@
     <div class="terminal-window">
       <div class="terminal-header">
         <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
-        <div class="terminal-title">~/cause-effect/membership_brief.txt</div>
+        <div class="terminal-title">~/cause-effect/dinner_brief.txt</div>
       </div>
       <div class="terminal-body">
-        <strong>cause &amp; effect</strong> is built for people who have internalised one truth: every decision in the chain has a consequence, and <strong>you are accountable for both.</strong> we bring together the most senior supply chain and operations leaders on the planet for <strong>candid intelligence sharing, honest benchmarking,</strong> and strategic conversations that never leave the room.
+        <strong>cause &amp; effect</strong> is a private dinner series for chief supply chain officers and the operators who carry equivalent weight. <strong>ten seats per dinner. no vendors. no consultants. no slides.</strong> just the people who own the decisions — in a room where what is said stays said.
       </div>
     </div>
-    <h2 class="about-headline">signal, not noise.<br><strong>peer intelligence that moves strategy.</strong></h2>
-    <p class="about-body">most supply chain executives spend their days surrounded by vendors selling them something. cause &amp; effect is different. it is a closed collective where cscos and senior logistics leaders share real data, real problems, and real solutions — with people who carry exactly the same weight you do.</p>
+    <h2 class="about-headline">the best supply chain conversations<br><strong>do not happen at conferences.</strong></h2>
+    <p class="about-body">they happen at dinner. when the agenda is gone, the badges are off, and the people across the table are dealing with exactly the same pressures you are. cause &amp; effect creates that room deliberately — in the cities where global logistics is actually managed, with the people who are actually accountable for it.</p>
   </div>
 </section>
 
-<!-- ── BENEFITS ── -->
-<section class="benefits" id="benefits">
-  <div class="benefits-inner">
-    <div class="section-center"><div class="section-label-box">operation: member intelligence</div></div>
-    <div class="benefits-grid">
-      <div class="benefit-card"><div class="benefit-label">01 // intelligence</div><div class="benefit-title">monthly strategic briefings</div><p class="benefit-desc">curated intelligence on freight markets, geopolitical disruption, supplier risk, and technology shifts. written by practitioners, not analysts. no advertorial content. no fluff. just signal.</p></div>
-      <div class="benefit-card"><div class="benefit-label">02 // network</div><div class="benefit-title">private peer network</div><p class="benefit-desc">a vetted community of cscos, vps of logistics, heads of procurement, and operations directors. direct access to the people solving the same problems you are — at companies that actually operate at scale.</p></div>
-      <div class="benefit-card"><div class="benefit-label">03 // crisis</div><div class="benefit-title">rapid response network</div><p class="benefit-desc">when a port shuts down at 2am or a key supplier fails overnight, you don't need a consultant — you need someone who has been there. cause &amp; effect members have first-call access to peer expertise in real time.</p></div>
-      <div class="benefit-card"><div class="benefit-label">04 // benchmarking</div><div class="benefit-title">confidential data exchange</div><p class="benefit-desc">anonymous benchmarking across freight cost, inventory ratios, technology stack, and team structure. understand how your operations compare — without giving anything away publicly.</p></div>
-      <div class="benefit-card"><div class="benefit-label">05 // vendors</div><div class="benefit-title">pre-vetted introductions</div><p class="benefit-desc">no cold pitches. no wasted time. a vendor only reaches the cause &amp; effect recommended list after peer review. if it makes it through, at least three cscos have already kicked the tyres.</p></div>
-      <div class="benefit-card"><div class="benefit-label">06 // events</div><div class="benefit-title">closed-door roundtables</div><p class="benefit-desc">intimate gatherings in major logistics hubs — 12 people maximum. structured discussion, no slides, no sponsors in the room. what is said in the room stays in the room.</p></div>
+<!-- ── 10 SEATS STATEMENT ── -->
+<section class="seats">
+  <div class="seats-inner">
+    <div class="seats-number">10</div>
+    <div class="seats-label">// seats per dinner. this number does not move.</div>
+    <p class="seats-desc">
+      ten is not a target. it is a <strong>structural decision.</strong> below ten, the conversation has nowhere to hide. every person at the table must contribute. every seat carries weight.
+    </p>
+  </div>
+</section>
+
+<!-- ── FORMAT ── -->
+<section class="format" id="format">
+  <div class="format-inner">
+    <div class="section-center"><div class="section-label-box">the format</div></div>
+    <div class="format-grid">
+
+      <div class="format-card">
+        <div class="format-number">01 // the guest list</div>
+        <div class="format-title">every seat is a csco or equivalent.</div>
+        <p class="format-desc">no vendors. no consultants. no adjacents. every person at the table holds direct operational accountability for a global supply chain. the title must match the weight.</p>
+      </div>
+
+      <div class="format-card">
+        <div class="format-number">02 // the rule</div>
+        <div class="format-title">chatham house. always.</div>
+        <p class="format-desc">nothing said at the table is attributed. no screenshots. no social posts. no conference write-ups. conversations at cause &amp; effect do not exist outside the room.</p>
+      </div>
+
+      <div class="format-card">
+        <div class="format-number">03 // the location</div>
+        <div class="format-title">cities where freight moves.</div>
+        <p class="format-desc">dinners are held in the logistics hubs of the world — the cities where the actual decisions get made. not convention centres. not hotel ballrooms. places worth the travel.</p>
+      </div>
+
+      <div class="format-card">
+        <div class="format-number">04 // the invitation</div>
+        <div class="format-title">one dinner earns the next.</div>
+        <p class="format-desc">attendance at one dinner is how you receive the next invitation. the collective grows by word of table, not word of mouth. there is no public waitlist. this page is the closest thing to one.</p>
+      </div>
+
+      <div class="format-card locked">
+        <div class="locked-tag">// unlocks at scale</div>
+        <div class="format-title">peer intelligence &amp; benchmarking.</div>
+        <p class="format-desc">when the collective reaches critical mass, we release what has been built: anonymous benchmarking across freight cost, inventory ratios, and technology stack — contributed by the operators in the room, available only to them.</p>
+      </div>
+
+      <div class="format-card locked">
+        <div class="locked-tag">// unlocks at scale</div>
+        <div class="format-title">rapid response network.</div>
+        <p class="format-desc">a private channel for the moments that cannot wait — supplier failures, port closures, geopolitical disruption. when it matters, the group is available. built on the trust the dinners create.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -300,14 +356,26 @@
 <!-- ── WHO ── -->
 <section class="who" id="who">
   <div class="who-inner">
-    <h2 class="who-headline">built for senior supply chain executives<br><strong>led by CSCO's</strong></h2>
+    <h2 class="who-headline">not everyone qualifies.<br><strong>that is the point.</strong></h2>
     <div class="title-tags">
       <span class="title-tag">$csco</span><span class="title-tag">$chief-ops-officer</span><span class="title-tag">$vp-supply-chain</span><span class="title-tag">$vp-logistics</span><span class="title-tag">$director-of-logistics</span><span class="title-tag">$head-of-procurement</span><span class="title-tag">$vp-procurement</span><span class="title-tag">$director-of-ops</span><span class="title-tag">$head-of-supply-chain</span>
     </div>
     <div class="who-criteria">
-      <div><div class="criteria-number">criterion // 01</div><div class="criteria-title">seniority</div><p class="criteria-desc">you hold a c-suite, vp, or director-level title with direct ownership of supply chain or logistics outcomes. not aspiring to it — actually accountable for it.</p></div>
-      <div><div class="criteria-number">criterion // 02</div><div class="criteria-title">scale</div><p class="criteria-desc">your organisation moves meaningful volume. whether that is a $400m manufacturer or a global 3pl, the decisions you make have real downstream consequences.</p></div>
-      <div><div class="criteria-number">criterion // 03</div><div class="criteria-title">reciprocity</div><p class="criteria-desc">membership is not passive. cause &amp; effect works because everyone contributes. you give as much as you take — knowledge, experience, candour.</p></div>
+      <div>
+        <div class="criteria-number">criterion // 01</div>
+        <div class="criteria-title">operational accountability</div>
+        <p class="criteria-desc">you do not advise on supply chains. you own one. c-suite, vp, or director-level with direct accountability for the outcome — not the deck about it.</p>
+      </div>
+      <div>
+        <div class="criteria-number">criterion // 02</div>
+        <div class="criteria-title">meaningful scale</div>
+        <p class="criteria-desc">your operation moves real volume. whether that is a $500m manufacturer or a global 3pl, the decisions you make create downstream consequences for the people, systems, and markets that depend on them.</p>
+      </div>
+      <div>
+        <div class="criteria-number">criterion // 03</div>
+        <div class="criteria-title">willingness to be present</div>
+        <p class="criteria-desc">cause &amp; effect is not a newsletter or a conference badge. it is a dinner. you show up, you contribute, you hold the room. that is the only requirement that cannot be delegated.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -315,26 +383,59 @@
 <!-- ── TESTIMONIALS ── -->
 <section class="testimonials">
   <div class="testimonials-inner">
-    <div class="section-center"><div class="section-label-box">field reports</div></div>
+    <div class="section-center"><div class="section-label-box--dark">from the table</div></div>
     <div class="testimonials-grid">
-      <div class="testimonial-card"><p class="t-quote">"the briefings are the only thing i read cover to cover. <strong>everything else is noise.</strong> cause &amp; effect cuts straight to what actually matters for people operating at this level."</p><div class="t-author"><div class="t-name">sarah k.</div><div class="t-role">csco // global consumer goods, €4bn revenue</div></div></div>
-      <div class="testimonial-card"><p class="t-quote">"when we had a critical supplier failure in southeast asia, i had three peer cscos on a call within 90 minutes. <strong>that network saved us weeks of scrambling.</strong>"</p><div class="t-author"><div class="t-name">james t.</div><div class="t-role">vp supply chain // industrial manufacturing</div></div></div>
-      <div class="testimonial-card"><p class="t-quote">"the benchmarking data alone justifies membership. <strong>i finally know what good looks like</strong> — not from a consultancy model, but from people running operations like mine."</p><div class="t-author"><div class="t-name">maria l.</div><div class="t-role">director of logistics // $2.1bn e-commerce</div></div></div>
+      <div class="testimonial-card">
+        <p class="t-quote">"i have sat through a hundred supply chain events. cause &amp; effect is the first time i have left a room thinking — <strong>i needed that conversation.</strong>"</p>
+        <div class="t-author">
+          <div class="t-name">sarah k.</div>
+          <div class="t-role">csco // global consumer goods, €4bn revenue</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="t-quote">"ten people. three hours. no agenda. the quality of thinking in that room was <strong>unlike anything a panel stage has ever produced.</strong>"</p>
+        <div class="t-author">
+          <div class="t-name">james t.</div>
+          <div class="t-role">vp supply chain // industrial manufacturing</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="t-quote">"the people across the table were carrying the same weight i was. <strong>that is rarer than it sounds.</strong> i flew eight hours for it and i would do it again."</p>
+        <div class="t-author">
+          <div class="t-name">maria l.</div>
+          <div class="t-role">director of logistics // $2.1bn e-commerce</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CITIES ── -->
+<section class="cities">
+  <div class="cities-inner">
+    <div class="cities-label">// upcoming locations</div>
+    <div class="cities-list">
+      <span class="city-tag">rotterdam</span>
+      <span class="city-tag">singapore</span>
+      <span class="city-tag">chicago</span>
+      <span class="city-tag">dubai</span>
+      <span class="city-tag">frankfurt</span>
+      <span class="city-tag">london</span>
+      <span class="city-tag">hong kong</span>
+      <span class="city-tag">los angeles</span>
     </div>
   </div>
 </section>
 
 <!-- ── FINAL CTA ── -->
 <section class="final-cta" id="signup">
-  <p class="cta-eyebrow">// membership is limited — applications reviewed personally</p>
-  <h2 class="cta-headline">every decision has<br><strong>a cause and an effect.</strong></h2>
-  <p class="cta-sub">join the small collective that helps supply chain leaders make better ones. applications reviewed by our membership committee within 72 hours.</p>
-
+  <p class="cta-eyebrow">// seats are allocated. most requests do not make it through.</p>
+  <h2 class="cta-headline">ten seats.<br><strong>one conversation.</strong></h2>
+  <p class="cta-sub">if you qualify, you will hear back within 72 hours. if you do not, you will not. there is no holding pattern, no waitlist email, no consolation content.</p>
   <form class="final-form" id="final-step1">
     <input type="email" id="final-email" placeholder="your work email address">
-    <button type="button" id="final-next">request access →</button>
+    <button type="button" id="final-next">request a seat →</button>
   </form>
-
   <div class="step2 step2--light" id="final-step2">
     <p class="step2-label">// one more thing.</p>
     <input type="text" id="final-company" placeholder="company name">
@@ -350,10 +451,9 @@
       <option>VP Procurement</option>
       <option>Other C-Suite / Director</option>
     </select>
-    <button type="button" id="final-submit" class="submit-btn">complete application →</button>
+      <button type="button" id="final-submit" class="submit-btn">submit application →</button>
   </div>
-
-  <p class="cta-disclaimer">application only. no spam. no vendors. no noise.</p>
+  <p class="cta-disclaimer">no vendors. no consultants. no exceptions.</p>
 </section>
 
 <!-- ── FOOTER ── -->
@@ -362,7 +462,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff"><path d="M320-240q-100.08 0-170.04-69.96T80-480q0-100.08 69.96-170.04T320-720q36.23 0 69.42 10.38 33.2 10.39 61.04 30.16-7.77 7.08-14.69 15.11-6.92 8.04-13.77 16.04-21.54-15.07-47.42-23.38Q348.69-680 320-680q-83 0-141.5 58.5T120-480q0 83 58.5 141.5T320-280q28.69 0 54.58-8.31 25.88-8.31 47.42-23.38 6.85 8 13.77 16.04 6.92 8.03 14.69 15.11-27.84 19.77-61.04 30.16Q356.23-240 320-240Zm320 0q-36.23 0-69.42-10.38-33.2-10.39-61.04-30.16 7.77-7.08 14.69-15.11 6.92-8.04 13.77-16.04 21.77 15.07 47.54 23.38Q611.31-280 640-280q83 0 141.5-58.5T840-480q0-83-58.5-141.5T640-680q-28.69 0-54.46 8.31T538-648.31q-6.85-8-13.77-16.04-6.92-8.03-14.69-15.11 27.84-19.77 61.04-30.16Q603.77-720 640-720q100.08 0 170.04 69.96T880-480q0 100.08-69.96 170.04T640-240Zm-160-62.31q-37.77-33.61-58.88-80Q400-428.69 400-480q0-51.31 21.12-97.69 21.11-46.39 58.88-80 37.77 33.61 58.88 80Q560-531.31 560-480q0 51.31-21.12 97.69-21.11 46.39-58.88 80Z"/></svg>
     cause &amp; effect
   </div>
-  <div class="footer-meta">si//csco — member intelligence collective // est. mmxxiv</div>
+  <div class="footer-meta">private dinner series // est. mmxxiv // invitation only</div>
   <ul class="footer-links">
     <li><a href="#">privacy</a></li>
     <li><a href="#">terms</a></li>
@@ -371,26 +471,6 @@
 </footer>
 
 <script>
-  /* ─────────────────────────────────────────────────────────
-     GOOGLE APPS SCRIPT SETUP — free, unlimited, data goes to your Google Sheet.
-
-     Apps Script code to paste at script.google.com:
-     ─────────────────────────────────────────────
-     function doPost(e) {
-       const sheet = SpreadsheetApp.openById('YOUR_SHEET_ID').getActiveSheet();
-       const data  = JSON.parse(e.postData.contents);
-       sheet.appendRow([new Date(), data.email, data.company, data.role]);
-       return ContentService
-         .createTextOutput(JSON.stringify({ result: 'success' }))
-         .setMimeType(ContentService.MimeType.JSON);
-     }
-     ─────────────────────────────────────────────
-     Steps:
-     1. Create a Google Sheet — copy its ID from the URL (/d/SHEET_ID/edit)
-     2. Go to script.google.com, paste the code above, replace YOUR_SHEET_ID
-     3. Deploy → New deployment → Web app → access: "Anyone" → Deploy
-     4. Copy the /exec URL and paste it below
-  ───────────────────────────────────────────────────────── */
   const GOOGLE_SCRIPT = 'https://script.google.com/macros/s/AKfycbyYNl-elsgQMfV8P9cS_dStdrPSqHzfIoTcx46vJMm7ybAf0HQxAXHLMksfxuAHVJM/exec';
 
   /* ── Binary canvas ── */
@@ -416,8 +496,6 @@
     const step1   = document.getElementById(cfg.step1);
     const step2   = document.getElementById(cfg.step2);
     const emailEl = document.getElementById(cfg.email);
-
-    // Step 1: validate email → reveal step 2
     document.getElementById(cfg.next).addEventListener('click', () => {
       const val = emailEl.value.trim();
       if (!val.includes('@') || !val.includes('.')) {
@@ -433,29 +511,23 @@
         document.getElementById(cfg.company).focus();
       }, 200);
     });
-
-    // Step 2: submit to Formspree
     document.getElementById(cfg.submit).addEventListener('click', async () => {
       const email   = emailEl.value.trim();
       const company = document.getElementById(cfg.company).value.trim();
       const role    = document.getElementById(cfg.role).value;
       if (!company || !role) return;
-
       const btn  = document.getElementById(cfg.submit);
       const orig = btn.textContent;
       btn.textContent = 'submitting...';
       btn.disabled = true;
-
       try {
-        // mode: 'no-cors' is required for Google Apps Script cross-origin requests.
-        // The data is sent and written to your Sheet — we just can't read the response.
         await fetch(GOOGLE_SCRIPT, {
           method:  'POST',
           mode:    'no-cors',
           headers: { 'Content-Type': 'text/plain' },
           body:    JSON.stringify({ email, company, role })
         });
-        step2.innerHTML = '<p class="step2-label" style="font-size:13px;letter-spacing:0.05em;opacity:0.8">application received ✓ — we\'ll be in touch within 72 hours.</p>';
+        step2.innerHTML = '<p class="step2-label" style="font-size:13px;letter-spacing:0.05em;opacity:0.8">application received ✓ — you will hear back within 72 hours if you qualify.</p>';
       } catch {
         btn.textContent = 'error — please try again';
         btn.disabled = false;
@@ -463,7 +535,6 @@
       }
     });
   }
-
   initTwoStep({ step1:'hero-step1',  next:'hero-next',  email:'hero-email',  step2:'hero-step2',  company:'hero-company',  role:'hero-role',  submit:'hero-submit'  });
   initTwoStep({ step1:'final-step1', next:'final-next', email:'final-email', step2:'final-step2', company:'final-company', role:'final-role', submit:'final-submit' });
 
