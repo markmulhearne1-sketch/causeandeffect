@@ -574,6 +574,11 @@
     emailEl.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') { e.preventDefault(); document.getElementById(cfg.next).click(); }
     });
+    /* Block native form submit (also fires on Enter) → same handler */
+    document.getElementById(cfg.step1).addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById(cfg.next).click();
+    });
 
     /* Enter key on any step2 field → trigger submit */
     const triggerSubmit = (e) => { if (e.key === 'Enter') { e.preventDefault(); document.getElementById(cfg.submit).click(); } };
