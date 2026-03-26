@@ -570,6 +570,17 @@
     /* Hide error as user types */
     emailEl.addEventListener('input', () => errorEl.classList.remove('visible'));
 
+    /* Enter key on email field → trigger next */
+    emailEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); document.getElementById(cfg.next).click(); }
+    });
+
+    /* Enter key on any step2 field → trigger submit */
+    const triggerSubmit = (e) => { if (e.key === 'Enter') { e.preventDefault(); document.getElementById(cfg.submit).click(); } };
+    [cfg.firstName, cfg.lastName, cfg.cityOther, cfg.company].forEach(id => {
+      document.getElementById(id).addEventListener('keydown', triggerSubmit);
+    });
+
     document.getElementById(cfg.submit).addEventListener('click', async () => {
       const email      = emailEl.value.trim();
       const firstName  = document.getElementById(cfg.firstName).value.trim();
