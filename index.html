@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cause & effect — supply chain intelligence, benchmarked.</title>
-  <meta name="description" content="The independent research desk for global supply chain operators. Weekly intelligence briefs, quarterly benchmark reports, and the most rigorous dataset on global logistics.">
+  <title>cause & effect - private dinners for supply chain leaders</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -17,7 +16,6 @@
       --off-white:   #f3f3f0;
       --border-dark: rgba(255,255,255,0.08);
       --border-light: #e0e0d8;
-      --accent:      #d4ff3a;
       --mono: 'JetBrains Mono', 'Courier New', monospace;
       --sans: 'Inter', system-ui, sans-serif;
     }
@@ -55,34 +53,50 @@
     /* ── HERO ── */
     .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 40px 100px; overflow: hidden; }
     #binary-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.07; }
-    .hero-inner { position: relative; z-index: 2; max-width: 860px; }
+    .hero-inner { position: relative; z-index: 2; max-width: 800px; }
     .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
-    h1 { font-size: clamp(46px, 7.5vw, 92px); font-weight: 300; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 28px; }
+    h1 { font-size: clamp(46px, 7.5vw, 88px); font-weight: 300; line-height: 1.07; letter-spacing: -0.035em; margin-bottom: 28px; }
     h1 strong { font-weight: 900; }
-    .hero-subhead { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.58); line-height: 1.75; max-width: 620px; margin: 0 auto 52px; }
+    .hero-subhead { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.58); line-height: 1.75; max-width: 560px; margin: 0 auto 52px; }
     .hero-subhead strong { color: rgba(255,255,255,0.92); font-weight: 600; }
     .signup-form { display: flex; max-width: 460px; margin: 0 auto 18px; border: 1px solid rgba(255,255,255,0.55); transition: opacity 0.2s; }
     .signup-form input { flex: 1; background: rgba(255,255,255,0.1); border: none; outline: none; padding: 14px 18px; font-family: var(--sans); font-size: 14px; color: var(--white); min-width: 0; }
     .signup-form input::placeholder { color: rgba(255,255,255,0.55); }
     .signup-form button { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; background: var(--white); color: var(--black); border: none; padding: 14px 22px; cursor: pointer; white-space: nowrap; transition: opacity 0.2s; }
     .signup-form button:hover { opacity: 0.85; }
-    .email-error { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; margin-top: 2px; display: none; color: rgba(255,100,100,0.9); }
+    /* ── STEP 2 ── */
+    .step2 { display: none; flex-direction: column; gap: 8px; max-width: 460px; margin: 0 auto; animation: fadeUp 0.28s ease forwards; }
+    .step2.visible { display: flex; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .step2-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; margin-bottom: 2px; text-align: left; }
+    .step2 input, .step2 select { width: 100%; outline: none; padding: 13px 18px; font-family: var(--sans); font-size: 14px; -webkit-appearance: none; appearance: none; }
+    .step2 button[type="button"].submit-btn { width: 100%; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; border: none; padding: 14px; cursor: pointer; transition: opacity 0.2s; }
+    .step2 button[type="button"].submit-btn:hover { opacity: 0.85; }
+    .step2 button[type="button"].submit-btn:disabled { opacity: 0.5; cursor: default; }
+    .step2--dark .step2-label { color: rgba(255,255,255,0.4); }
+    .step2--dark input, .step2--dark select { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.22); color: var(--white); }
+    .step2--dark input::placeholder { color: rgba(255,255,255,0.3); }
+    .step2--dark select option { background: #111; color: var(--white); }
+    .step2--dark button[type="button"].submit-btn { background: var(--white); color: var(--black); }
+    .step2--light .step2-label { color: #999; }
+    .step2--light input, .step2--light select { background: var(--white); border: 1.5px solid #ccc; color: var(--black); }
+    .step2--light input::placeholder { color: #bbb; }
+    .step2--light button[type="button"].submit-btn { background: var(--black); color: var(--white); }
+    .city-other { display: none; animation: fadeUp 0.2s ease forwards; }
+    .city-other.visible { display: block; }
+    .city-other input { font-size: 13px !important; padding: 10px 16px !important; }
+    .final-form { transition: opacity 0.2s; }
+    .email-error { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; margin-top: 2px; display: none; }
     .email-error.visible { display: block; }
-    .success-msg { font-family: var(--mono); font-size: 13px; letter-spacing: 0.03em; display: none; }
-    .success-msg.visible { display: block; animation: fadeUp 0.28s ease forwards; }
+    .step2--dark ~ .email-error, .signup-form ~ .email-error { color: rgba(255,100,100,0.9); }
+    .step2--light ~ .email-error { color: rgba(200,50,50,0.9); }
     .hero-disclaimer { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; }
-    .hero-disclaimer strong { color: rgba(255,255,255,0.55); font-weight: 700; }
     .hero-meta { position: absolute; bottom: 32px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 48px; z-index: 2; }
     .hero-meta span { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     /* ── TICKER ── */
     .ticker { background: var(--off-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 14px 0; overflow: hidden; }
-    .ticker-inner { display: flex; animation: scroll-ticker 40s linear infinite; width: max-content; }
-    .ticker-item { font-family: var(--mono); font-size: 12px; color: #777; padding: 0 28px; white-space: nowrap; letter-spacing: 0.04em; display: flex; align-items: center; gap: 10px; }
-    .ticker-item .t-tag { font-weight: 700; color: #222; }
-    .ticker-item .t-val { color: #888; }
-    .ticker-item .t-up { color: #0a7d2b; }
-    .ticker-item .t-down { color: #b02020; }
+    .ticker-inner { display: flex; animation: scroll-ticker 28s linear infinite; width: max-content; }
+    .ticker-item { font-size: 13px; color: #888; padding: 0 44px; white-space: nowrap; letter-spacing: 0.03em; }
     @keyframes scroll-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     /* ── ABOUT ── */
     .about { background: var(--off-white); padding: 108px 48px; color: var(--black); }
@@ -96,16 +110,8 @@
     h2.about-headline { font-size: clamp(34px, 5vw, 58px); font-weight: 300; line-height: 1.12; letter-spacing: -0.03em; color: var(--black); margin-bottom: 24px; }
     h2.about-headline strong { font-weight: 900; }
     .about-body { font-size: 17px; color: #555; line-height: 1.8; max-width: 680px; }
-    .about-body strong { color: var(--black); font-weight: 700; }
-    /* ── STAT SECTION ── */
-    .seats { background: var(--black); padding: 108px 48px; text-align: center; }
-    .seats-inner { max-width: 720px; margin: 0 auto; }
-    .seats-number { font-size: clamp(80px, 14vw, 160px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--white); margin-bottom: 8px; }
-    .seats-label { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 40px; }
-    .seats-desc { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 580px; margin: 0 auto; }
-    .seats-desc strong { color: var(--white); font-weight: 700; }
-    /* ── FORMAT / WHAT YOU GET ── */
-    .format { background: var(--black); padding: 108px 48px; border-top: 1px solid var(--border-dark); }
+    /* ── FORMAT ── */
+    .format { background: var(--black); padding: 108px 48px; }
     .section-label-box { display: inline-block; border: 2px solid var(--white); font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.05em; padding: 10px 20px; margin-bottom: 72px; color: var(--white); }
     .format-inner { max-width: 1120px; margin: 0 auto; text-align: center; }
     .format-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.07); }
@@ -118,66 +124,51 @@
     .format-card.locked .format-title { color: rgba(255,255,255,0.35); }
     .format-card.locked .format-desc { color: rgba(255,255,255,0.25); }
     .locked-tag { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.12); padding: 3px 8px; margin-bottom: 16px; }
-    /* ── INTELLIGENCE / RECENT REPORTS ── */
-    .intel { background: var(--off-white); padding: 108px 48px; color: var(--black); }
-    .intel-inner { max-width: 1120px; margin: 0 auto; }
-    .intel-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; flex-wrap: wrap; gap: 20px; }
-    .intel-header h2 { font-size: clamp(30px, 4vw, 48px); font-weight: 300; letter-spacing: -0.03em; line-height: 1.12; color: var(--black); }
-    .intel-header h2 strong { font-weight: 900; }
-    .intel-meta { font-family: var(--mono); font-size: 11px; color: #999; letter-spacing: 0.08em; }
-    .intel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.08); }
-    .intel-card { background: var(--off-white); padding: 36px 32px; display: flex; flex-direction: column; gap: 18px; transition: background 0.2s; cursor: pointer; min-height: 280px; }
-    .intel-card:hover { background: #ebebe6; }
-    .intel-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: #888; display: flex; justify-content: space-between; align-items: center; }
-    .intel-tag .t-cat { color: var(--black); font-weight: 700; }
-    .intel-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; color: var(--black); flex: 1; }
-    .intel-excerpt { font-size: 14px; color: #666; line-height: 1.65; }
-    .intel-footer { font-family: var(--mono); font-size: 11px; color: #999; letter-spacing: 0.04em; display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid rgba(0,0,0,0.08); }
-    .intel-footer .read-link { color: var(--black); font-weight: 700; }
-    .intel-paywall { display: inline-block; font-family: var(--mono); font-size: 9px; background: var(--black); color: var(--white); padding: 2px 7px; letter-spacing: 0.08em; margin-left: 6px; }
     /* ── WHO ── */
-    .who { background: var(--black); padding: 108px 48px; color: var(--white); border-top: 1px solid var(--border-dark); }
+    .who { background: var(--off-white); padding: 108px 48px; color: var(--black); }
     .who-inner { max-width: 920px; margin: 0 auto; }
-    h2.who-headline { font-size: clamp(32px, 4.5vw, 54px); font-weight: 300; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 52px; color: var(--white); }
+    h2.who-headline { font-size: clamp(32px, 4.5vw, 54px); font-weight: 300; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 52px; }
     h2.who-headline strong { font-weight: 900; }
     .title-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 64px; }
-    .title-tag { font-family: var(--mono); font-size: 13px; font-weight: 700; background: var(--white); color: var(--black); padding: 9px 17px; letter-spacing: 0.02em; }
-    .who-criteria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 52px; }
-    .criteria-number { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; margin-bottom: 14px; }
-    .criteria-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; color: var(--white); }
-    .criteria-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+    .title-tag { font-family: var(--mono); font-size: 13px; font-weight: 700; background: var(--black); color: var(--white); padding: 9px 17px; letter-spacing: 0.02em; }
+    .who-criteria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: 1px solid var(--border-light); padding-top: 52px; }
+    .criteria-number { font-family: var(--mono); font-size: 10px; color: #aaa; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .criteria-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
+    .criteria-desc { font-size: 14px; color: #666; line-height: 1.7; }
+    /* ── SEATS ── */
+    .seats { background: var(--black); padding: 108px 48px; text-align: center; }
+    .seats-inner { max-width: 680px; margin: 0 auto; }
+    .seats-number { font-size: clamp(80px, 14vw, 160px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--white); margin-bottom: 8px; }
+    .seats-label { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 40px; }
+    .seats-desc { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 540px; margin: 0 auto; }
+    .seats-desc strong { color: var(--white); font-weight: 700; }
     /* ── WHY NOW ── */
     .testimonials { background: var(--off-white); padding: 108px 48px; color: var(--black); }
     .testimonials-inner { max-width: 1060px; margin: 0 auto; }
     .section-center { text-align: center; margin-bottom: 68px; }
-    .section-label-box--dark { display: inline-block; border: 2px solid var(--black); font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.05em; padding: 10px 20px; color: var(--black); }
+    .section-label-box--dark { display: inline-block; border: 2px solid var(--black); font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.05em; padding: 10px 20px; margin-bottom: 72px; color: var(--black); }
     .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,0.08); }
     .testimonial-card { background: var(--off-white); padding: 44px 38px; }
-    .testimonial-card .criteria-title { color: var(--black); }
-    .t-quote { font-size: 16px; line-height: 1.8; color: #444; font-weight: 300; }
-    .t-quote strong { font-weight: 700; color: var(--black); }
-    .t-quote .stat { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--black); }
-    /* ── COVERAGE / TOPICS ── */
+    .t-quote { font-size: 16px; line-height: 1.8; color: #444; font-weight: 300; font-style: italic; }
+    .t-quote strong { font-style: normal; font-weight: 700; color: var(--black); }
+    /* ── CITIES ── */
     .cities { background: var(--black); padding: 80px 48px; border-top: 1px solid var(--border-dark); }
-    .cities-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: flex-start; gap: 60px; }
-    .cities-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.25); white-space: nowrap; flex-shrink: 0; padding-top: 10px; }
+    .cities-inner { max-width: 920px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+    .cities-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.2); white-space: nowrap; flex-shrink: 0; }
     .cities-list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .city-tag { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.12); padding: 7px 14px; letter-spacing: 0.04em; transition: all 0.2s; }
-    .city-tag:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+    .city-tag { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px; letter-spacing: 0.04em; }
     /* ── FINAL CTA ── */
     .final-cta { background: var(--white); color: var(--black); padding: 128px 48px; text-align: center; }
     .cta-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: #aaa; margin-bottom: 30px; }
-    h2.cta-headline { font-size: clamp(38px, 6vw, 76px); font-weight: 300; line-height: 1.08; letter-spacing: -0.035em; max-width: 780px; margin: 0 auto 22px; color: var(--black); }
+    h2.cta-headline { font-size: clamp(38px, 6vw, 76px); font-weight: 300; line-height: 1.08; letter-spacing: -0.035em; max-width: 740px; margin: 0 auto 22px; color: var(--black); }
     h2.cta-headline strong { font-weight: 900; }
-    .cta-sub { font-size: 16px; color: #666; line-height: 1.75; max-width: 500px; margin: 0 auto 56px; }
-    .cta-sub strong { color: var(--black); font-weight: 700; }
+    .cta-sub { font-size: 16px; color: #666; line-height: 1.75; max-width: 460px; margin: 0 auto 56px; }
     .final-form { display: flex; max-width: 460px; margin: 0 auto 16px; border: 1.5px solid var(--black); transition: opacity 0.2s; }
     .final-form input { flex: 1; background: var(--white); border: none; outline: none; padding: 14px 18px; font-family: var(--sans); font-size: 14px; color: var(--black); min-width: 0; }
     .final-form input::placeholder { color: #bbb; }
     .final-form button { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; background: var(--black); color: var(--white); border: none; padding: 14px 22px; cursor: pointer; white-space: nowrap; transition: opacity 0.2s; }
     .final-form button:hover { opacity: 0.8; }
     .cta-disclaimer { font-family: var(--mono); font-size: 11px; color: #bbb; letter-spacing: 0.03em; }
-    .final-cta .email-error { color: rgba(180,40,40,0.9); }
     /* ── FOOTER ── */
     footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 30px 48px; display: flex; align-items: center; justify-content: space-between; }
     .footer-logo { display: flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: 13px; color: rgba(255,255,255,0.35); }
@@ -203,15 +194,14 @@
       .hamburger { display: flex; }
       .nav-links { display: none; }
       .nav-cta { display: none; }
-      .hero, .about, .format, .who, .seats, .testimonials, .cities, .final-cta, .intel { padding: 80px 24px; }
+      .hero, .about, .format, .who, .seats, .testimonials, .cities, .final-cta { padding: 80px 24px; }
       .hero-meta { display: none; }
-      .format-grid, .testimonials-grid, .intel-grid { grid-template-columns: 1fr; }
+      .format-grid, .testimonials-grid { grid-template-columns: 1fr; }
       .who-criteria { grid-template-columns: 1fr; gap: 32px; }
       .cities-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       footer { flex-direction: column; gap: 18px; text-align: center; }
       .footer-meta { display: none; }
       .terminal-body { padding: 28px 24px; }
-      .intel-header { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -225,78 +215,90 @@
     <span class="nav-logo-text">cause &amp; effect</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#about">the thesis</a></li>
-    <li><a href="#coverage">coverage</a></li>
-    <li><a href="#intel">intelligence</a></li>
-    <li><a href="#who">who reads it</a></li>
+    <li><a href="#about">the dinner</a></li>
+    <li><a href="#format">the format</a></li>
+    <li><a href="#who">eligibility</a></li>
   </ul>
-  <a href="#signup" class="nav-cta">+ subscribe</a>
+  <a href="#signup" class="nav-cta">+ request a seat</a>
   <button class="hamburger" id="hamburger" aria-label="open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <!-- ── MOBILE MENU ── -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about"    class="mobile-link">the thesis</a>
-  <a href="#coverage" class="mobile-link">coverage</a>
-  <a href="#intel"    class="mobile-link">intelligence</a>
-  <a href="#who"      class="mobile-link">who reads it</a>
-  <a href="#signup"   class="mobile-cta">+ subscribe</a>
+  <a href="#about"  class="mobile-link">the dinner</a>
+  <a href="#format" class="mobile-link">the format</a>
+  <a href="#who"    class="mobile-link">eligibility</a>
+  <a href="#signup" class="mobile-cta">+ request a seat</a>
 </div>
 <!-- ── HERO ── -->
 <section class="hero">
   <canvas id="binary-canvas"></canvas>
   <div class="hero-inner">
-    <p class="hero-eyebrow">// cause &amp; effect; supply chain intelligence, benchmarked.</p>
+    <p class="hero-eyebrow">// cause &amp; effect; small rooms, honest conversations.</p>
     <h1>
-      the definitive source<br>
-      for <strong>supply chain data.</strong>
+      private dinners<br>
+      <strong>for supply chain leaders.</strong>
     </h1>
     <p class="hero-subhead">
-      weekly intelligence briefs, quarterly benchmark reports, and the most rigorous dataset on global logistics — built for the operators making <strong>billion-dollar decisions without billion-dollar data.</strong>
+      cause &amp; effect hosts <strong>invitation-only 8-seat dinners</strong> with the operators responsible for global supply chains. built to stay small. membership is intentionally limited.
     </p>
-    <form class="signup-form" id="hero-form">
+    <form class="signup-form" id="hero-step1">
       <input type="email" id="hero-email" placeholder="your work email address">
-      <button type="button" id="hero-submit">subscribe →</button>
+      <button type="button" id="hero-next">request a seat →</button>
     </form>
     <p class="email-error" id="hero-email-error">// personal emails are not accepted. please use your work address.</p>
-    <div class="success-msg" id="hero-success" style="color: rgba(255,255,255,0.8); margin-bottom: 18px;">
-      ✓ subscribed. the next brief ships monday.
+    <div class="step2 step2--dark" id="hero-step2">
+      <p class="step2-label">// one more thing.</p>
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="hero-firstname" placeholder="first name" style="flex:1;">
+        <input type="text" id="hero-lastname" placeholder="last name" style="flex:1;">
+      </div>
+      <select id="hero-city">
+        <option value="" disabled selected>preferred dinner city</option>
+      <option>Toronto</option>
+      <option>Montreal</option>
+      <option>Austin</option>
+      <option>Houston</option>  
+      <option>Chicago</option>
+      <option>Calgary</option>
+      <option>Los Angeles</option>
+      <option>London</option>
+      <option>New York</option>
+      <option>Miami</option>
+        <option value="Other">Other</option>
+      </select>
+      <div class="city-other" id="hero-city-other-wrap">
+        <input type="text" id="hero-city-other" placeholder="which city?" autocomplete="off">
+      </div>
+      <input type="text" id="hero-company" placeholder="company name">
+      <select id="hero-role">
+        <option value="" disabled selected>your role</option>
+        <option>CSCO</option>
+        <option>COO</option>
+        <option>VP Supply Chain</option>
+        <option>VP Logistics</option>
+        <option>Director of Logistics</option>
+        <option>Director of Operations</option>
+        <option>Head of Procurement</option>
+        <option>VP Procurement</option>
+        <option>Other C-Suite / Director</option>
+      </select>
+      <button type="button" id="hero-submit" class="submit-btn">submit application →</button>
     </div>
-    <p class="hero-disclaimer"><strong>free</strong> · every monday · read in under 9 minutes</p>
+    <p class="hero-disclaimer">every seat is reviewed. most applications are declined.</p>
   </div>
   <div class="hero-meta">
-    <span>si//csco — intelligence desk</span>
-    <span>vol. ii · issue 17</span>
-    <span>doc: #ce-2026-intel</span>
+    <span>si//csco — access restricted</span>
+    <span>10 seats. always.</span>
+    <span>doc: #ce-2024-01</span>
   </div>
 </section>
-<!-- ── TICKER: LIVE DATA LINES ── -->
+<!-- ── TICKER ── -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item"><span class="t-tag">SCFI</span><span class="t-val">1,247</span><span class="t-down">−2.3%</span></span>
-    <span class="ticker-item"><span class="t-tag">LA/LB DWELL</span><span class="t-val">3.1d</span><span class="t-up">+0.4d</span></span>
-    <span class="ticker-item"><span class="t-tag">BDI</span><span class="t-val">1,882</span><span class="t-up">+4.1%</span></span>
-    <span class="ticker-item"><span class="t-tag">DIESEL (US)</span><span class="t-val">$3.74</span><span class="t-down">−0.8%</span></span>
-    <span class="ticker-item"><span class="t-tag">CHINA PMI</span><span class="t-val">50.1</span><span class="t-up">+0.3</span></span>
-    <span class="ticker-item"><span class="t-tag">PANAMA CANAL</span><span class="t-val">26 transits/d</span><span class="t-up">+2</span></span>
-    <span class="ticker-item"><span class="t-tag">ROTTERDAM TEU</span><span class="t-val">1.18M</span><span class="t-up">+3.2%</span></span>
-    <span class="ticker-item"><span class="t-tag">AIR CARGO (FBX)</span><span class="t-val">$2.81/kg</span><span class="t-down">−1.1%</span></span>
-    <span class="ticker-item"><span class="t-tag">US RAIL VOL</span><span class="t-val">236k cars</span><span class="t-up">+1.7%</span></span>
-    <span class="ticker-item"><span class="t-tag">TRUCK SPOT (DAT)</span><span class="t-val">$2.12/mi</span><span class="t-down">−0.6%</span></span>
-    <span class="ticker-item"><span class="t-tag">INV-TO-SALES</span><span class="t-val">1.37</span><span class="t-up">+0.02</span></span>
-    <!-- duplicate for seamless loop -->
-    <span class="ticker-item"><span class="t-tag">SCFI</span><span class="t-val">1,247</span><span class="t-down">−2.3%</span></span>
-    <span class="ticker-item"><span class="t-tag">LA/LB DWELL</span><span class="t-val">3.1d</span><span class="t-up">+0.4d</span></span>
-    <span class="ticker-item"><span class="t-tag">BDI</span><span class="t-val">1,882</span><span class="t-up">+4.1%</span></span>
-    <span class="ticker-item"><span class="t-tag">DIESEL (US)</span><span class="t-val">$3.74</span><span class="t-down">−0.8%</span></span>
-    <span class="ticker-item"><span class="t-tag">CHINA PMI</span><span class="t-val">50.1</span><span class="t-up">+0.3</span></span>
-    <span class="ticker-item"><span class="t-tag">PANAMA CANAL</span><span class="t-val">26 transits/d</span><span class="t-up">+2</span></span>
-    <span class="ticker-item"><span class="t-tag">ROTTERDAM TEU</span><span class="t-val">1.18M</span><span class="t-up">+3.2%</span></span>
-    <span class="ticker-item"><span class="t-tag">AIR CARGO (FBX)</span><span class="t-val">$2.81/kg</span><span class="t-down">−1.1%</span></span>
-    <span class="ticker-item"><span class="t-tag">US RAIL VOL</span><span class="t-val">236k cars</span><span class="t-up">+1.7%</span></span>
-    <span class="ticker-item"><span class="t-tag">TRUCK SPOT (DAT)</span><span class="t-val">$2.12/mi</span><span class="t-down">−0.6%</span></span>
-    <span class="ticker-item"><span class="t-tag">INV-TO-SALES</span><span class="t-val">1.37</span><span class="t-up">+0.02</span></span>
+    <span class="ticker-item">rotterdam</span><span class="ticker-item">singapore</span><span class="ticker-item">chicago</span><span class="ticker-item">toronto</span><span class="ticker-item">frankfurt</span><span class="ticker-item">hong kong</span><span class="ticker-item">los angeles</span><span class="ticker-item">london</span><span class="ticker-item">shenzhen</span><span class="ticker-item">new york</span><span class="ticker-item">tokyo</span><span class="ticker-item">antwerp</span><span class="ticker-item">miami</span><span class="ticker-item">amsterdam</span><span class="ticker-item">shanghai</span>
+    <span class="ticker-item">rotterdam</span><span class="ticker-item">singapore</span><span class="ticker-item">chicago</span><span class="ticker-item">toronto</span><span class="ticker-item">frankfurt</span><span class="ticker-item">hong kong</span><span class="ticker-item">los angeles</span><span class="ticker-item">london</span><span class="ticker-item">shenzhen</span><span class="ticker-item">new york</span><span class="ticker-item">tokyo</span><span class="ticker-item">antwerp</span><span class="ticker-item">miami</span><span class="ticker-item">amsterdam</span><span class="ticker-item">shanghai</span>
   </div>
 </div>
 <!-- ── ABOUT ── -->
@@ -305,107 +307,60 @@
     <div class="terminal-window">
       <div class="terminal-header">
         <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
-        <div class="terminal-title">~/cause-effect/thesis.txt</div>
+        <div class="terminal-title">~/cause-effect/dinner_brief.txt</div>
       </div>
       <div class="terminal-body">
-        <strong>cause &amp; effect</strong> is the independent research desk for global supply chain operators. <strong>weekly intelligence briefs. quarterly benchmark reports.</strong> a proprietary dataset spanning freight cost, inventory turns, lead times, and technology stack — contributed by the operators inside the world's largest supply chains, normalized and published by us. built on one belief: the industry that moves $25 trillion a year deserves a canonical source. today, it does not have one.
+        <strong>cause &amp; effect</strong> is a private dinner series for chief supply chain officers and the operators who carry equivalent weight. <strong>eight seats per dinner. no pitches. cultivating relationships.</strong> built around small rooms of operators having honest conversations about what's actually happening inside supply chains.
       </div>
     </div>
-    <h2 class="about-headline">the best supply chain decisions<br><strong>are made with the best data.</strong></h2>
-    <p class="about-body">today, that data does not exist in one place. it lives in fragments — buried in consultancy reports, scattered across vendor dashboards, locked behind seven-figure subscriptions, or simply sitting unmeasured on someone's desk. every operator sees a sliver. nobody sees the whole. <strong>cause &amp; effect aggregates it, normalizes it, and publishes it. weekly. for free.</strong></p>
+    <h2 class="about-headline">the best supply chain conversations<br><strong>do not happen at conferences.</strong></h2>
+    <p class="about-body">they happen at dinner. when the agenda is gone, the badges are off, and the people across the table are dealing with exactly the same pressures you are. cause &amp; effect creates that room deliberately - in the cities where global logistics is actually managed, with the people who are actually accountable for it.</p>
   </div>
 </section>
-<!-- ── STAT: THE THESIS ── -->
+<!-- ── 10 SEATS STATEMENT ── -->
 <section class="seats">
   <div class="seats-inner">
-    <div class="seats-number">1%</div>
-    <div class="seats-label">// the share of the supply chain picture each operator sees today.</div>
+    <div class="seats-number">8</div>
+    <div class="seats-label">// seats per dinner. this number does not move.</div>
     <p class="seats-desc">
-      the remaining 99% is locked inside <strong>vendor dashboards, consultancy engagements, and competitors' private books.</strong> every other trillion-dollar industry — semis, equities, energy, pharma — has an independent intelligence layer. supply chain does not. that is what we are building.
+      eight is not a target. it is a <strong>structural decision.</strong> below eight, the conversation has nowhere to hide. every person at the table must contribute. every seat carries weight.
     </p>
   </div>
 </section>
-<!-- ── FORMAT / WHAT YOU GET ── -->
-<section class="format" id="coverage">
+<!-- ── FORMAT ── -->
+<section class="format" id="format">
   <div class="format-inner">
-    <div class="section-center"><div class="section-label-box">what we publish</div></div>
+    <div class="section-center"><div class="section-label-box">the format</div></div>
     <div class="format-grid">
       <div class="format-card">
-        <div class="format-number">01 // weekly</div>
-        <div class="format-title">the monday brief.</div>
-        <p class="format-desc">every monday, 7am ET. what moved in global logistics last week, what it means for your operation, what to do about it. nine minutes. no filler.</p>
+        <div class="format-number">01 // the guest list</div>
+        <div class="format-title">every seat is a supply chain leader.</div>
+        <p class="format-desc">every person at the table holds direct operational accountability for a piece or all of a global supply chain. the title must match the weight.</p>
       </div>
       <div class="format-card">
-        <div class="format-number">02 // quarterly</div>
-        <div class="format-title">benchmark reports.</div>
-        <p class="format-desc">freight cost per lane. inventory turns by vertical. lead-time variance. tech stack adoption. anonymized, normalized, cross-checked against the operator dataset. a reference no consultancy will give you for free.</p>
+        <div class="format-number">02 // the rule</div>
+        <div class="format-title">everyone speaks.</div>
+        <p class="format-desc">dinner runs for three hours. no presentations, no panels, no Q&amp;A format. everyone at the table speaks. nobody is there to watch.</p>
       </div>
       <div class="format-card">
-        <div class="format-number">03 // rapid</div>
-        <div class="format-title">disruption deep dives.</div>
-        <p class="format-desc">when a port closes, a carrier fails, a region locks down, a tariff lands — we publish the operator's read within 48 hours. what happened, who is exposed, what the historical analogs say.</p>
+        <div class="format-number">03 // the location</div>
+        <div class="format-title">cities where freight moves.</div>
+        <p class="format-desc">dinners are held in the logistics hubs of the world — the cities where the actual decisions get made. not convention centres. not hotel ballrooms. places worth the travel.</p>
       </div>
       <div class="format-card">
-        <div class="format-number">04 // dataset</div>
-        <div class="format-title">the operator dataset.</div>
-        <p class="format-desc">a contributory benchmark. subscribers submit their own numbers anonymously, we normalize across industry and scale, and return the distribution. you see where you sit. nobody sees who you are.</p>
+        <div class="format-number">04 // the invitation</div>
+        <div class="format-title">one dinner earns the next.</div>
+        <p class="format-desc">attendance at one dinner is how you receive the next invitation. the collective grows by word of table, not word of mouth. there is no public waitlist. this page is the closest thing to one.</p>
       </div>
       <div class="format-card locked">
-        <div class="locked-tag">// cause &amp; effect pro</div>
-        <div class="format-title">the full database.</div>
-        <p class="format-desc">full historical benchmarks, custom peer cohorts, real-time disruption alerts, and direct access to the analysts behind the reports. built for teams that need to be right, not just informed.</p>
+        <div class="locked-tag">// unlocks at scale</div>
+        <div class="format-title">peer intelligence &amp; benchmarking.</div>
+        <p class="format-desc">when the collective reaches critical mass, we release what has been built: anonymous benchmarking across freight cost, inventory ratios, and technology stack — contributed by the operators in the room, available only to them.</p>
       </div>
       <div class="format-card locked">
-        <div class="locked-tag">// cause &amp; effect pro</div>
-        <div class="format-title">private briefings.</div>
-        <p class="format-desc">quarterly invite-only calls with the research desk. off-the-record Q&amp;A on what the data is showing, what is about to move, and what the tail risks look like for the next two quarters.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ── INTELLIGENCE / RECENT REPORTS ── -->
-<section class="intel" id="intel">
-  <div class="intel-inner">
-    <div class="intel-header">
-      <h2>recent <strong>intelligence.</strong></h2>
-      <div class="intel-meta">// vol. ii · 17 issues published · q2 2026</div>
-    </div>
-    <div class="intel-grid">
-      <div class="intel-card">
-        <div class="intel-tag"><span class="t-cat">BENCHMARK REPORT</span><span>12 min read</span></div>
-        <div class="intel-title">Q1 2026 Ocean Freight: the disconnect between spot and contract is now structural.</div>
-        <p class="intel-excerpt">Spot rates on trans-Pacific have fallen 38% YoY. Contract rates have fallen 6%. We explain what is driving the gap, who carries the exposure, and how the top quartile of shippers is repricing mid-contract without damaging carrier relationships.</p>
-        <div class="intel-footer"><span>apr 14, 2026</span><span class="read-link">read →</span></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-tag"><span class="t-cat">OPERATOR DATASET</span><span>8 min read</span></div>
-        <div class="intel-title">Inventory turns are lying to you. Here is the new denominator.</div>
-        <p class="intel-excerpt">Across 214 contributing operators, median inventory turns look flat year over year. Decomposed by channel mix and SKU velocity, the real number has degraded 11%. Most CFO dashboards are measuring the wrong thing. The fix is mechanical.</p>
-        <div class="intel-footer"><span>apr 07, 2026</span><span class="read-link">read →</span></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-tag"><span class="t-cat">DISRUPTION BRIEF</span><span>6 min read</span></div>
-        <div class="intel-title">Red Sea routing: the 18-month re-route is now the base case.</div>
-        <p class="intel-excerpt">Cape of Good Hope transits are up 240% since Nov 2023 and have not reversed. We look at the three historical analogs, the cost-per-TEU impact by lane, and why the operators planning for return-to-Suez in H2 are wrong.</p>
-        <div class="intel-footer"><span>mar 31, 2026</span><span class="read-link">read →</span></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-tag"><span class="t-cat">TECH STACK</span><span>14 min read <span class="intel-paywall">PRO</span></span></div>
-        <div class="intel-title">The WMS consolidation wave: who is consolidating, who is being consolidated, and what it means for your RFP.</div>
-        <p class="intel-excerpt">Six major deals in eighteen months. We map the buyer-seller landscape, the pricing shifts already flowing to customers, and the specific questions to put in front of your vendor before signing a multi-year renewal.</p>
-        <div class="intel-footer"><span>mar 24, 2026</span><span class="read-link">read →</span></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-tag"><span class="t-cat">POLICY &amp; TRADE</span><span>11 min read</span></div>
-        <div class="intel-title">Section 301 expansion: the SKUs nobody is talking about yet.</div>
-        <p class="intel-excerpt">The headline tariffs get the press. The tariff-line changes that matter for your landed cost are buried in the HTSUS. We pulled the 42 line items most likely to surprise mid-market importers in the next six months.</p>
-        <div class="intel-footer"><span>mar 17, 2026</span><span class="read-link">read →</span></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-tag"><span class="t-cat">BENCHMARK REPORT</span><span>17 min read <span class="intel-paywall">PRO</span></span></div>
-        <div class="intel-title">Last-mile cost per delivery, by density and vertical — 2026 baseline.</div>
-        <p class="intel-excerpt">The full methodology, the distribution curves, the outliers, and the operators who have driven last-mile cost down 22% in 18 months without degrading SLA. The top quartile is doing something specific. It is in the report.</p>
-        <div class="intel-footer"><span>mar 10, 2026</span><span class="read-link">read →</span></div>
+        <div class="locked-tag">// unlocks at scale</div>
+        <div class="format-title">rapid response network.</div>
+        <p class="format-desc">a private channel for the moments that cannot wait — supplier failures, port closures, geopolitical disruption. when it matters, the group is available. built on the trust the dinners create.</p>
       </div>
     </div>
   </div>
@@ -413,25 +368,25 @@
 <!-- ── WHO ── -->
 <section class="who" id="who">
   <div class="who-inner">
-    <h2 class="who-headline">built for the operators,<br><strong>not the advisors.</strong></h2>
+    <h2 class="who-headline">not everyone qualifies.<br><strong>that is the point.</strong></h2>
     <div class="title-tags">
-      <span class="title-tag">$csco</span><span class="title-tag">$chief-ops-officer</span><span class="title-tag">$vp-supply-chain</span><span class="title-tag">$vp-logistics</span><span class="title-tag">$director-of-logistics</span><span class="title-tag">$head-of-procurement</span><span class="title-tag">$vp-procurement</span><span class="title-tag">$director-of-ops</span><span class="title-tag">$head-of-supply-chain</span><span class="title-tag">$chief-procurement-officer</span><span class="title-tag">$s&amp;op-lead</span><span class="title-tag">$head-of-logistics</span>
+      <span class="title-tag">$csco</span><span class="title-tag">$chief-ops-officer</span><span class="title-tag">$vp-supply-chain</span><span class="title-tag">$vp-logistics</span><span class="title-tag">$director-of-logistics</span><span class="title-tag">$head-of-procurement</span><span class="title-tag">$vp-procurement</span><span class="title-tag">$director-of-ops</span><span class="title-tag">$head-of-supply-chain</span><span class="title-tag">$chief-procurement-officer</span>
     </div>
     <div class="who-criteria">
       <div>
-        <div class="criteria-number">reader // 01</div>
-        <div class="criteria-title">operators of scale.</div>
-        <p class="criteria-desc">c-suite, vp, and director-level leaders with direct accountability for global flows — from $500m manufacturers to the largest 3PLs and shippers in the world. the people whose decisions the data has to hold up against.</p>
+        <div class="criteria-number">criterion // 01</div>
+        <div class="criteria-title">operational accountability</div>
+        <p class="criteria-desc">you do not advise on supply chains. you own one. c-suite, vp, or director-level with direct accountability for the outcome — not the deck about it.</p>
       </div>
       <div>
-        <div class="criteria-number">reader // 02</div>
-        <div class="criteria-title">contributors, optionally.</div>
-        <p class="criteria-desc">subscribers can contribute anonymized operational data to the dataset. contributors receive expanded benchmark cuts in exchange. no vendor surveys. no consultancy dressed up as "research." only operator-to-operator.</p>
+        <div class="criteria-number">criterion // 02</div>
+        <div class="criteria-title">meaningful scale</div>
+        <p class="criteria-desc">your operation moves real volume. whether that is a $500m manufacturer or a global 3pl, the decisions you make create downstream consequences for the people, systems, and markets that depend on them.</p>
       </div>
       <div>
-        <div class="criteria-number">reader // 03</div>
-        <div class="criteria-title">the rest of the industry.</div>
-        <p class="criteria-desc">analysts, founders, investors, and policy teams who need to understand what is actually happening at operator level — not what vendors are selling. the newsletter is free because the industry needs a shared reference, not another paywall.</p>
+        <div class="criteria-number">criterion // 03</div>
+        <div class="criteria-title">willingness to be present</div>
+        <p class="criteria-desc">cause &amp; effect is not a newsletter or a conference badge. it is a dinner. you show up, you contribute, you hold the room. that is the only requirement that cannot be delegated.</p>
       </div>
     </div>
   </div>
@@ -439,65 +394,93 @@
 <!-- ── WHY NOW ── -->
 <section class="testimonials">
   <div class="testimonials-inner">
-    <div class="section-center"><div class="section-label-box--dark">the gap we are filling</div></div>
+    <div class="section-center"><div class="section-label-box--dark">why now?</div></div>
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <div class="criteria-title">the publishing void.</div>
-        <p class="t-quote">semis have SemiAnalysis. finance has Bloomberg. tech has Stratechery. <strong>supply chain has consultancy decks and vendor whitepapers.</strong> an industry moving <span class="stat">$25T</span> of value a year has no independent intelligence layer. that is not a market gap — that is a market error.</p>
+        <div class="criteria-title">conference fatigue</div>
+        <p class="t-quote">there are over 200 supply chain conferences running annually. attendance is up. the quality of peer conversation is not. <strong>the format has not changed in 30 years.</strong></p>
       </div>
       <div class="testimonial-card">
-        <div class="criteria-title">the data asymmetry.</div>
-        <p class="t-quote">the average operator makes routing, carrier, and inventory decisions worth <span class="stat">$100M+</span> per year, informed by the same three vendor reports everyone else has read. the large tech-forward shippers have proprietary benchmarks. <strong>everyone else is flying with one eye closed.</strong></p>
+        <div class="criteria-title">the cost of bad decisions</div>
+        <p class="t-quote">the average cost of a major supply chain disruption to a Fortune 500 company is $100m+. most of those decisions are made <strong>without access to anyone who has been through it before.</strong> peer intelligence at that level is nearly impossible to find.</p>
       </div>
       <div class="testimonial-card">
-        <div class="criteria-title">the decision tax.</div>
-        <p class="t-quote">a conservative read: bad benchmarking costs the average enterprise shipper <span class="stat">3–7%</span> of logistics spend annually. at the fortune 1000 level that is <strong>$40bn+ of value left on the table every year</strong> — not because the operators are wrong, but because the reference set does not exist.</p>
+        <div class="criteria-title">talent concentration</div>
+        <p class="t-quote">fewer than 4,000 people globally hold c-suite or vp-level accountability for a supply chain operating above $1bn. <strong>they do not have a room.</strong> cause &amp; effect is building one.</p>
       </div>
     </div>
   </div>
 </section>
-<!-- ── COVERAGE / TOPICS ── -->
+<!-- ── CITIES ── -->
 <section class="cities">
   <div class="cities-inner">
-    <div class="cities-label">// coverage areas</div>
+    <div class="cities-label">// upcoming locations</div>
     <div class="cities-list">
-      <span class="city-tag">ocean freight</span>
-      <span class="city-tag">air cargo</span>
-      <span class="city-tag">ltl &amp; ftl</span>
-      <span class="city-tag">last-mile</span>
-      <span class="city-tag">rail &amp; intermodal</span>
-      <span class="city-tag">inventory turns</span>
-      <span class="city-tag">S&amp;OP</span>
-      <span class="city-tag">procurement</span>
-      <span class="city-tag">sourcing &amp; nearshoring</span>
-      <span class="city-tag">wms / tms / erp</span>
-      <span class="city-tag">customs &amp; trade</span>
-      <span class="city-tag">tariffs &amp; policy</span>
-      <span class="city-tag">labor &amp; wages</span>
-      <span class="city-tag">geopolitics</span>
-      <span class="city-tag">warehouse automation</span>
-      <span class="city-tag">cold chain</span>
-      <span class="city-tag">capex &amp; network design</span>
-      <span class="city-tag">ESG &amp; scope-3</span>
-      <span class="city-tag">carrier solvency</span>
-      <span class="city-tag">port &amp; terminal ops</span>
+      <span class="city-tag">miami</span>
+      <span class="city-tag">los angeles</span>
+      <span class="city-tag">chicago</span>
+      <span class="city-tag">toronto</span>
+      <span class="city-tag">dallas</span>
+      <span class="city-tag">london</span>
+      <span class="city-tag">hong kong</span>
+      <span class="city-tag">new york</span>
+      <span class="city-tag">houston</span>
+      <span class="city-tag">vancouver (bc)</span>
+      <span class="city-tag">indianapolis</span>
+      <span class="city-tag">atlanta</span>
+      <span class="city-tag">columbus</span>
     </div>
   </div>
 </section>
 <!-- ── FINAL CTA ── -->
 <section class="final-cta" id="signup">
-  <p class="cta-eyebrow">// published every monday. free. forever.</p>
-  <h2 class="cta-headline">read what the<br><strong>operators read.</strong></h2>
-  <p class="cta-sub">join the supply chain leaders already reading every monday. <strong>nine minutes, one brief, zero filler.</strong></p>
-  <form class="final-form" id="final-form">
+  <p class="cta-eyebrow">// seats are allocated. most requests do not make it through.</p>
+  <h2 class="cta-headline">eight seats.<br><strong>one conversation.</strong></h2>
+  <p class="cta-sub">if you qualify, you will hear back within 72 hours.</p>
+  <form class="final-form" id="final-step1">
     <input type="email" id="final-email" placeholder="your work email address">
-    <button type="button" id="final-submit">subscribe →</button>
+    <button type="button" id="final-next">request a seat →</button>
   </form>
-  <p class="email-error" id="final-email-error">// personal emails are not accepted. please use your work address.</p>
-  <div class="success-msg" id="final-success" style="color: #060606; margin-bottom: 16px; font-weight: 700;">
-    ✓ subscribed. the next brief ships monday.
+  <p class="email-error" id="final-email-error" style="color:rgba(180,40,40,0.9);">// personal emails are not accepted. please use your work address.</p>
+  <div class="step2 step2--light" id="final-step2">
+    <p class="step2-label">// one more thing.</p>
+    <div style="display:flex;gap:8px;">
+      <input type="text" id="final-firstname" placeholder="first name" style="flex:1;">
+      <input type="text" id="final-lastname" placeholder="last name" style="flex:1;">
+    </div>
+    <select id="final-city">
+      <option value="" disabled selected>preferred dinner city</option>
+      <option>Toronto</option>
+      <option>Montreal</option>
+      <option>Austin</option>
+      <option>Houston</option>  
+      <option>Chicago</option>
+      <option>Calgary</option>
+      <option>Los Angeles</option>
+      <option>London</option>
+      <option>New York</option>
+      <option>Miami</option>
+      <option value="Other">Other</option>
+    </select>
+    <div class="city-other" id="final-city-other-wrap">
+      <input type="text" id="final-city-other" placeholder="which city?" autocomplete="off">
+    </div>
+    <input type="text" id="final-company" placeholder="company name">
+    <select id="final-role">
+      <option value="" disabled selected>your role</option>
+      <option>CSCO</option>
+      <option>COO</option>
+      <option>VP Supply Chain</option>
+      <option>VP Logistics</option>
+      <option>Director of Logistics</option>
+      <option>Director of Operations</option>
+      <option>Head of Procurement</option>
+      <option>VP Procurement</option>
+      <option>Other C-Suite / Director</option>
+    </select>
+    <button type="button" id="final-submit" class="submit-btn">submit application →</button>
   </div>
-  <p class="cta-disclaimer">unsubscribe in one click · we never sell your data · we never share the list</p>
+  <p class="cta-disclaimer"></p>
 </section>
 <!-- ── FOOTER ── -->
 <footer>
@@ -505,11 +488,10 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff"><path d="M320-240q-100.08 0-170.04-69.96T80-480q0-100.08 69.96-170.04T320-720q36.23 0 69.42 10.38 33.2 10.39 61.04 30.16-7.77 7.08-14.69 15.11-6.92 8.04-13.77 16.04-21.54-15.07-47.42-23.38Q348.69-680 320-680q-83 0-141.5 58.5T120-480q0 83 58.5 141.5T320-280q28.69 0 54.58-8.31 25.88-8.31 47.42-23.38 6.85 8 13.77 16.04 6.92 8.03 14.69 15.11-27.84 19.77-61.04 30.16Q356.23-240 320-240Zm320 0q-36.23 0-69.42-10.38-33.2-10.39-61.04-30.16 7.77-7.08 14.69-15.11 6.92-8.04 13.77-16.04 21.77 15.07 47.54 23.38Q611.31-280 640-280q83 0 141.5-58.5T840-480q0-83-58.5-141.5T640-680q-28.69 0-54.46 8.31T538-648.31q-6.85-8-13.77-16.04-6.92-8.03-14.69-15.11 27.84-19.77 61.04-30.16Q603.77-720 640-720q100.08 0 170.04 69.96T880-480q0 100.08-69.96 170.04T640-240Zm-160-62.31q-37.77-33.61-58.88-80Q400-428.69 400-480q0-51.31 21.12-97.69 21.11-46.39 58.88-80 37.77 33.61 58.88 80Q560-531.31 560-480q0 51.31-21.12 97.69-21.11 46.39-58.88 80Z"/></svg>
     cause &amp; effect
   </div>
-  <div class="footer-meta">independent research desk // est. mmxxvi // supply chain intelligence</div>
+  <div class="footer-meta">private dinner series // est. mmxxiv // invitation only</div>
   <ul class="footer-links">
-    <li><a href="#">methodology</a></li>
-    <li><a href="#">contribute</a></li>
     <li><a href="#">privacy</a></li>
+    <li><a href="#">terms</a></li>
     <li><a href="#">contact</a></li>
   </ul>
 </footer>
@@ -539,14 +521,29 @@
     const domain = val.split('@')[1].toLowerCase();
     return !PERSONAL_DOMAINS.has(domain);
   }
-  /* ── Newsletter signup (single-step) ── */
-  function initSignup(cfg) {
-    const form     = document.getElementById(cfg.form);
-    const emailEl  = document.getElementById(cfg.email);
-    const errorEl  = document.getElementById(cfg.emailError);
-    const btn      = document.getElementById(cfg.submit);
-    const success  = document.getElementById(cfg.success);
-    const handle = async () => {
+
+  /* ── Two-step forms ── */
+  function initTwoStep(cfg) {
+    const step1      = document.getElementById(cfg.step1);
+    const step2      = document.getElementById(cfg.step2);
+    const emailEl    = document.getElementById(cfg.email);
+    const errorEl    = document.getElementById(cfg.emailError);
+    const cityEl     = document.getElementById(cfg.city);
+    const otherWrap  = document.getElementById(cfg.cityOtherWrap);
+    const otherInput = document.getElementById(cfg.cityOther);
+
+    /* Show/hide "other city" text field */
+    cityEl.addEventListener('change', () => {
+      if (cityEl.value === 'Other') {
+        otherWrap.classList.add('visible');
+        otherInput.focus();
+      } else {
+        otherWrap.classList.remove('visible');
+        otherInput.value = '';
+      }
+    });
+
+    document.getElementById(cfg.next).addEventListener('click', () => {
       const val = emailEl.value.trim();
       if (!isBusinessEmail(val)) {
         emailEl.focus();
@@ -556,31 +553,73 @@
         return;
       }
       errorEl.classList.remove('visible');
+      step1.style.opacity = '0';
+      setTimeout(() => {
+        step1.style.display = 'none';
+        step2.classList.add('visible');
+        document.getElementById(cfg.firstName).focus();
+      }, 200);
+    });
+
+    /* Hide error as user types */
+    emailEl.addEventListener('input', () => errorEl.classList.remove('visible'));
+
+    /* Enter key on email field → trigger next */
+    emailEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); document.getElementById(cfg.next).click(); }
+    });
+    /* Block native form submit (also fires on Enter) → same handler */
+    document.getElementById(cfg.step1).addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById(cfg.next).click();
+    });
+
+    /* Enter key on any step2 field → trigger submit */
+    const triggerSubmit = (e) => { if (e.key === 'Enter') { e.preventDefault(); document.getElementById(cfg.submit).click(); } };
+    [cfg.firstName, cfg.lastName, cfg.cityOther, cfg.company].forEach(id => {
+      document.getElementById(id).addEventListener('keydown', triggerSubmit);
+    });
+
+    document.getElementById(cfg.submit).addEventListener('click', async () => {
+      const email      = emailEl.value.trim();
+      const firstName  = document.getElementById(cfg.firstName).value.trim();
+      const lastName   = document.getElementById(cfg.lastName).value.trim();
+      const cityRaw    = cityEl.value;
+      const cityOther  = otherInput.value.trim();
+      const city       = cityRaw === 'Other' ? (cityOther || 'Other') : cityRaw;
+      const company    = document.getElementById(cfg.company).value.trim();
+      const role       = document.getElementById(cfg.role).value;
+      if (!firstName || !lastName || !cityRaw || (cityRaw === 'Other' && !cityOther) || !company || !role) return;
+      const btn  = document.getElementById(cfg.submit);
       const orig = btn.textContent;
-      btn.textContent = 'subscribing...';
+      btn.textContent = 'submitting...';
       btn.disabled = true;
       try {
         await fetch(GOOGLE_SCRIPT, {
           method:  'POST',
           mode:    'no-cors',
           headers: { 'Content-Type': 'text/plain' },
-          body:    JSON.stringify({ email: val, source: cfg.form, type: 'newsletter_subscribe' })
+          body:    JSON.stringify({ email, firstName, lastName, city, company, role })
         });
-        form.style.display = 'none';
-        success.classList.add('visible');
+        const isDark = step2.classList.contains('step2--dark');
+        step2.innerHTML = isDark
+          ? `<div style="border:1px solid rgba(255,255,255,0.45);padding:28px 24px;text-align:center;animation:fadeUp 0.3s ease forwards;">
+               <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:0.02em;">✓ application received</div>
+               <div style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.06em;line-height:1.7;">you will hear back within 72 hours if you qualify.<br>thank you for your interest.</div>
+             </div>`
+          : `<div style="border:2px solid #060606;padding:28px 24px;text-align:center;background:#060606;animation:fadeUp 0.3s ease forwards;">
+               <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:0.02em;">✓ application received</div>
+               <div style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:0.06em;line-height:1.7;">you will hear back within 72 hours if you qualify.<br>thank you for your interest.</div>
+             </div>`;
       } catch {
         btn.textContent = 'error — please try again';
         btn.disabled = false;
         setTimeout(() => { btn.textContent = orig; }, 3000);
       }
-    };
-    btn.addEventListener('click', handle);
-    form.addEventListener('submit', (e) => { e.preventDefault(); handle(); });
-    emailEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); handle(); } });
-    emailEl.addEventListener('input', () => errorEl.classList.remove('visible'));
+    });
   }
-  initSignup({ form:'hero-form',  email:'hero-email',  emailError:'hero-email-error',  submit:'hero-submit',  success:'hero-success'  });
-  initSignup({ form:'final-form', email:'final-email', emailError:'final-email-error', submit:'final-submit', success:'final-success' });
+  initTwoStep({ step1:'hero-step1',  next:'hero-next',  email:'hero-email',  emailError:'hero-email-error',  step2:'hero-step2',  firstName:'hero-firstname',  lastName:'hero-lastname',  city:'hero-city',  cityOtherWrap:'hero-city-other-wrap',  cityOther:'hero-city-other',  company:'hero-company',  role:'hero-role',  submit:'hero-submit'  });
+  initTwoStep({ step1:'final-step1', next:'final-next', email:'final-email', emailError:'final-email-error', step2:'final-step2', firstName:'final-firstname', lastName:'final-lastname', city:'final-city', cityOtherWrap:'final-city-other-wrap', cityOther:'final-city-other', company:'final-company', role:'final-role', submit:'final-submit' });
   /* ── Hamburger ── */
   const hamburger  = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
