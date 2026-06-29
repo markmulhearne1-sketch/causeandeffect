@@ -60,16 +60,17 @@
     }
     #binary-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.06; }
     .hero-inner { position: relative; z-index: 2; max-width: 860px; }
-    .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: rgba(255,255,255,0.35); margin-bottom: 36px; }
-    .hero-headline { font-size: clamp(52px, 8vw, 96px); font-weight: 900; line-height: 1.0; letter-spacing: -0.04em; margin-bottom: 32px; }
-    .hero-headline .light { font-weight: 300; display: block; }
-    .hero-sub { font-size: 19px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 580px; margin: 0 auto 52px; }
-    .hero-sub strong { color: var(--white); font-weight: 600; }
+    .hero-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: rgba(255,255,255,0.25); margin-bottom: 48px; }
+    .hero-headline { font-size: clamp(38px, 4.2vw, 62px); font-weight: 300; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 36px; }
+    .hero-headline .light { font-weight: 200; display: block; color: rgba(255,255,255,0.45); }
+    .hero-headline strong { font-weight: 700; color: var(--white); display: block; letter-spacing: -0.03em; }
+    .hero-sub { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 480px; margin: 0 auto 48px; }
+    .hero-sub strong { color: rgba(255,255,255,0.8); font-weight: 500; }
     .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-orange { font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; background: var(--orange); color: var(--black); border: none; padding: 16px 32px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+    .btn-orange { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; background: var(--orange); color: var(--black); border: none; padding: 13px 26px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
     .btn-orange:hover { opacity: 0.85; }
-    .btn-ghost { font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.25); padding: 16px 32px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
-    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-ghost { font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: 0.08em; background: transparent; color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.15); padding: 13px 26px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+    .btn-ghost:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.35); }
     .hero-meta { position: absolute; bottom: 32px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 48px; z-index: 2; }
     .hero-meta span { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.18); letter-spacing: 0.06em; }
 
@@ -322,7 +323,7 @@
   <div class="hero-inner">
     <p class="hero-eyebrow">// cause &amp; effect &mdash; the private network for distribution operators</p>
     <h1 class="hero-headline">
-      <span class="light">the private network</span><br>
+      <span class="light">the private network</span>
       <strong>for Distribution Operators</strong>
     </h1>
     <p class="hero-sub">
